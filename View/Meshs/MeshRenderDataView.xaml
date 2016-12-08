@@ -1,0 +1,111 @@
+﻿<UserControl xmlns:RSSE="clr-namespace:RSSE"  x:Class="RSSE.MeshRenderDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="renderEnumValues"
+        MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:MeshRenderModeEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="shadowEnumValues"
+            MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:MeshRenderShadowModeEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Label>Render mode</Label>
+            <ComboBox Margin="120,0,0,0" VerticalAlignment="Center"
+                      Name="RenderMode"
+                     ItemsSource="{Binding Source={StaticResource renderEnumValues}}"
+                     SelectedItem="{Binding RenderMode}"/>
+        </Grid>
+        <Grid>
+            <Label>Shadow</Label>
+            <ComboBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     ItemsSource="{Binding Source={StaticResource shadowEnumValues}}"
+                      SelectedItem="{Binding Shadow}"/>
+        </Grid>
+        <Grid>
+            <Label>LOD distance</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding LodOut}"/>
+        </Grid>
+        <StackPanel>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=RenderMode,Path=SelectedItem}" 
+                                     Value="{x:Static local:MeshRenderModeEnum.Texture}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <Grid>
+                <Label>Shader</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Shader}"/>
+            </Grid>
+            <Grid>
+                <Label>Subfunction</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Subfunction}"/>
+            </Grid>
+            
+            <DockPanel>
+                
+                <StackPanel Width="75">
+                    <Label>Textures:</Label>
+                    <Button Command="{Binding AddTextureCommand}">Add</Button>
+                    <Button Command="{Binding RemoveTextureCommand}" 
+                            CommandParameter="{Binding ElementName=TextureSelector, Path=SelectedItem}">
+                        Delete
+                    </Button>
+                </StackPanel>
+
+                <DataGrid Name="TextureSelector" ItemsSource="{Binding Path=Textures}" Width="220" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Order" IsReadOnly="True" Binding="{Binding Order}" Width="40"/>
+                        <DataGridTextColumn Header="Texture" IsReadOnly="False" Binding="{Binding Name}" Width="170"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            
+        </StackPanel>
+        <StackPanel>
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=RenderMode,Path=SelectedItem}" 
+                                     Value="{x:Static local:MeshRenderModeEnum.Material}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <Grid>
+                <Label>Material</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Material}"/>
+            </Grid>
+            <Grid>
+                <Label>Subfunction</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Subfunction}"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

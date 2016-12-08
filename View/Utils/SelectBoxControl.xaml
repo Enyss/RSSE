@@ -1,0 +1,29 @@
+﻿<UserControl Name="this" 
+             x:Class="RSSE.SelectBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="250">
+    <DockPanel>
+        <Label Content="{Binding ElementName=this, Path=Label}" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="30,0,0,0" Height="25" />
+        <StackPanel Width="60">
+            <Button Content="Add" HorizontalAlignment="Center" Width="50" Margin="0,5,0,0"
+                Command="{Binding ElementName=this, Path=AddItem}" />
+            <Button Content="Delete" HorizontalAlignment="Center" Width="50" Margin="0,5,0,0"
+                Command="{Binding ElementName=this, Path=RemoveItem}"
+                CommandParameter="{Binding ElementName=listBox, Path=SelectedItem}"/>
+        </StackPanel>
+        <ListBox Name="listBox" Margin="0,0,5,5"
+                 ItemsSource="{Binding ElementName=this, Path=ItemsSource}"
+                 SelectedItem="{Binding ElementName=this, Path=SelectedItem}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </DockPanel>
+</UserControl>

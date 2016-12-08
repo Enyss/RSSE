@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="RSSE.StateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"           
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="motionEnumValues"
+            MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:StateMotionTypeEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Label>Motion type</Label>
+            <ComboBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     ItemsSource="{Binding Source={StaticResource motionEnumValues}}"
+                     SelectedItem="{Binding Path=MotionType}"/>
+        </Grid>
+        <StackPanel Visibility="{Binding Path=IsTriggered, Converter={StaticResource BoolToVisibility}}">
+            <Grid>
+                <Label>Trigger function</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=TriggerFunction}"/>
+            </Grid>
+            <Grid>
+                <Label>Trigger ID</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=TriggerSysID}"/>
+            </Grid>
+            <Grid>
+                <Label>Trigger State</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=TriggerState}"/>
+            </Grid>
+        </StackPanel>
+        <Grid>
+            <Label>Position</Label>
+            <local:Vector3View DataContext="{Binding Path=Position}"/>
+        </Grid>
+        <Grid>
+            <Label>Rotation</Label>
+            <local:Vector3View DataContext="{Binding Path=Rotation}"/>
+        </Grid>
+        <Grid>
+            <Label>Scale</Label>
+            <local:Vector3View DataContext="{Binding Path=Scale}"/>
+        </Grid>
+        <Grid>
+            <Label>Start pause</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=StartPause}"/>
+        </Grid>
+        <Grid>
+            <Label>Rate</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Rate}"/>
+        </Grid>
+        <CheckBox IsChecked="{Binding Path=Visible}" Margin="0,5">Visible</CheckBox>
+        <CheckBox IsChecked="{Binding Path=CollisionEnabled}" Margin="0,5">Colllision enabled</CheckBox>
+        
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,36 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RSSE"
+        x:Class="RSSE.MainWindow"
+        mc:Ignorable="d"
+        x:Name="RSSE_MainWindow"
+        Title="RSSE : The Rogue System Ship Editor" Height="900" Width="1100">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Click="FileNew_Click"/>
+                <MenuItem Header="_Open" Click="FileOpen_Click" />
+                <MenuItem Header="Save _as" Click="FileSaveAs_Click" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+        </Menu>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="General">
+                <local:GeneralShipView DataContext="{Binding}"/>
+            </TabItem>
+            <TabItem Header="Subsystems">
+                <local:SubsystemsManagerView DataContext="{Binding Subsystems}"/>
+            </TabItem>
+            <TabItem Header="Interior meshs">
+                <local:MeshTreeView DataContext="{Binding InteriorMeshes}"/>
+            </TabItem>
+            <TabItem Header="Exterior meshs">
+                <local:MeshTreeView DataContext="{Binding ExteriorMeshes}"/>
+            </TabItem>
+        </TabControl>
+        
+    </DockPanel>
+</Window>

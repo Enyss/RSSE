@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="RSSE.DoFView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="250">
+    <StackPanel>
+        <Label HorizontalAlignment="Center">Rotation</Label>
+        <Grid Height="100" Width="200" HorizontalAlignment="Center" Margin="23,0,0,0" RenderTransformOrigin="0.478,0.495">
+            <CheckBox IsChecked="{Binding PU}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,0,0,0">Pitch Up</CheckBox>
+            <CheckBox IsChecked="{Binding PD}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="70,0,0,0">Pitch Down</CheckBox>
+            <CheckBox IsChecked="{Binding YL}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,25">Yaw Left</CheckBox>
+            <CheckBox IsChecked="{Binding YR}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,25">Yaw Right</CheckBox>
+            <CheckBox IsChecked="{Binding RL}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,25,0,0">Roll Left</CheckBox>
+            <CheckBox IsChecked="{Binding RR}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,25,0,0">Roll Right</CheckBox>
+        </Grid>
+        <Label HorizontalAlignment="Center">Translation</Label>
+        <Grid Width="200" Height="100" Margin="40,0,0,0" HorizontalAlignment="Center">
+            <CheckBox IsChecked="{Binding XL}" HorizontalAlignment="Left" VerticalAlignment="Center">Left</CheckBox>
+            <CheckBox IsChecked="{Binding XR}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="100,0,0,0">Right</CheckBox>
+            <CheckBox IsChecked="{Binding XU}" HorizontalAlignment="Left" Margin="125,0,0,0" VerticalAlignment="Top">Up</CheckBox>
+            <CheckBox IsChecked="{Binding XD}" VerticalAlignment="Bottom" Margin="125,0,0,0">Down</CheckBox>
+            <CheckBox IsChecked="{Binding XF}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,0,0,0">Forward</CheckBox>
+            <CheckBox IsChecked="{Binding XA}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,0" RenderTransformOrigin="0.293,0.531">Aft</CheckBox>
+        </Grid>
+    </StackPanel>
+</UserControl>

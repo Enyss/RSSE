@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="RSSE.MeshStateDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="300">
+    <StackPanel>
+        <Grid>
+            <Label>Function</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Function}"/>
+        </Grid>
+        <Grid>
+            <Label>Function ID</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=FunctionID}"/>
+        </Grid>
+        <Grid>
+            <Label>UI Type</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=UiPage}"/>
+        </Grid>
+        <Grid>
+            <Label>UI Page</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=UiType}"/>
+        </Grid>
+        <local:SelectBoxControl x:Name="StateSelector" Height="90"
+                                ItemsSource="{Binding Path=States}"
+                                AddItem="{Binding AddStateCommand}"
+                                RemoveItem="{Binding RemoveStateCommand}"/>
+        <local:StateView DataContext="{Binding ElementName=StateSelector, Path=SelectedItem}">
+            <local:StateView.Style>
+                <Style TargetType="local:StateView">
+                    <Setter Property="Visibility" Value="Visible"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=StateSelector, Path=SelectedItem}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </local:StateView.Style>
+        </local:StateView>
+    </StackPanel>
+</UserControl>

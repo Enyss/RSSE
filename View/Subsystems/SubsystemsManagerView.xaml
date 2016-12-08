@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="RSSE.SubsystemsManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             x:Name="this"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <DataTemplate x:Key="NothingTemplate" DataType="{x:Type local:SubsystemViewModel}">
+        </DataTemplate>
+        <DataTemplate x:Key="AccessoriesManagerTemplate" DataType="{x:Type local:AccessoriesManagerViewModel}">
+            <local:AccessoriesManagerView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="AttachementsManagerTemplate" DataType="{x:Type local:AttachementsManagerViewModel}">
+            <local:AttachementsManagerView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="BMSTemplate" DataType="{x:Type local:BMSViewModel}">
+            <local:BMSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CameraManagerTemplate" DataType="{x:Type local:CameraManagerViewModel}">
+            <local:CameraManagerView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="COMMTemplate" DataType="{x:Type local:COMMViewModel}">
+            <local:COMMView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="CSSMTemplate" DataType="{x:Type local:CSSMViewModel}">
+            <local:CSSMView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ECSTemplate" DataType="{x:Type local:ECSViewModel}">
+            <local:ECSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="FCMTemplate" DataType="{x:Type local:FCMViewModel}">
+            <local:FCMView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="LENRTemplate" DataType="{x:Type local:LENRViewModel}">
+            <local:LENRView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="LSSTemplate" DataType="{x:Type local:LSSViewModel}">
+            <local:LSSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="MESTemplate" DataType="{x:Type local:MESViewModel}">
+            <local:MESView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="MFDTemplate" DataType="{x:Type local:MFDViewModel}">
+            <local:MFDView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="MTSTemplate" DataType="{x:Type local:MTSViewModel}">
+            <local:MTSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="NASTemplate" DataType="{x:Type local:NASViewModel}">
+            <local:NASView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="RCMTemplate" DataType="{x:Type local:RCMViewModel}">
+            <local:RCMView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="RCSTemplate" DataType="{x:Type local:RCSViewModel}">
+            <local:RCSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="RMSTemplate" DataType="{x:Type local:RMSViewModel}">
+            <local:RMSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="TMSTemplate" DataType="{x:Type local:TMSViewModel}">
+            <local:TMSView DataContext="{Binding}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="VMSTemplate" DataType="{x:Type local:VMSViewModel}">
+            <local:VMSView DataContext="{Binding}"/>
+        </DataTemplate>
+
+        <local:SubsystemsManagerTemplateSelector
+            x:Key="myContentTemplateSelector"/>
+    </UserControl.Resources>
+    <DockPanel>
+        <DockPanel Width="200" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" DockPanel.Dock="Top">Subsystems</Label>
+            <ListBox DockPanel.Dock="Top" 
+                     x:Name="SubsystemSelector"
+                     ItemsSource="{Binding Subsystems}"
+                     SelectedItem="{Binding SelectedItem}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding SystemType}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
+        <ContentControl Content="{Binding SelectedItem}"
+                        ContentTemplateSelector="{StaticResource myContentTemplateSelector}"/>
+    </DockPanel>
+</UserControl>

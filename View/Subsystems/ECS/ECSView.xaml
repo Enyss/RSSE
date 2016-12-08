@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="RSSE.ECSView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             xmlns:vm="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=vm:ECSViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="650" d:DesignWidth="300">
+    <DockPanel Margin="1,5">
+        <StackPanel Width="275" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">ECS</Label>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Physical data</Label>
+            <Grid>
+                <Label>Power % :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_PWRpercent}"/>
+            </Grid>
+            <Grid>
+                <Label>Mass % :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_MASSpercent}"/>
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Power Bus</Label>
+            <Label HorizontalAlignment="Left" Margin="75,0,0,0">SYS Bus</Label>
+            <Grid>
+                <Label>Number :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_SYStotal}"/>
+            </Grid>
+            <Grid>
+                <Label>Max AMP :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_SYSAMPSmax}"/>
+            </Grid>
+            <Label HorizontalAlignment="Left" Margin="75,0,0,0">HV Bus</Label>
+            <Grid>
+                <Label>Number :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_HVtotal}"/>
+            </Grid>
+            <Grid>
+                <Label>Max AMP :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_HVAMPSmax}"/>
+            </Grid>
+            <Label HorizontalAlignment="Left" Margin="75,0,0,0">WPN Bus</Label>
+            <Grid>
+                <Label>Number :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_WPNtotal}"/>
+            </Grid>
+            <Grid>
+                <Label>Max AMP :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_WPNAMPSmax}"/>
+            </Grid>
+            <Label Margin="75,0,0,0" HorizontalAlignment="Left">RSV Bus</Label>
+            <Grid>
+                <Label>Max AMP :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_RSRVAMPSmax}"/>
+            </Grid>
+            <Label HorizontalAlignment="Left" Margin="75,0,0,0">EMRG Bus</Label>
+            <Grid>
+                <Label>Max AMP :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding ECS_EMRGAMPSmax}"/>
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+            <Grid>
+                <Label>Mount_MAX :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Mount_MAX}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys_EB :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys_EB}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys_quad :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys_quad}"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="1,1,0,0" BorderBrush="Gray" Width="1" HorizontalAlignment="Left"/>
+    </DockPanel>
+</UserControl>

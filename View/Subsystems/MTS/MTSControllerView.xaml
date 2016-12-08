@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="RSSE.MTSControllerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <StackPanel>
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+        <CheckBox IsChecked="{Binding Is_SPARE}" HorizontalAlignment="Left" Margin="100,5,0,5">Is spare</CheckBox>
+        <Grid>
+            <Label>EquipBay :</Label>
+            <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding EquipBay}"/>
+        </Grid>
+        <Grid>
+            <Label>Quad :</Label>
+            <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Quad}"/>
+        </Grid>
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Location</Label>
+        <Grid>
+            <Label>Position :</Label>
+            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+                               DataContext="{Binding Position}"/>
+        </Grid>
+        <Grid>
+            <Label>Rotation :</Label>
+            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+                               DataContext="{Binding Rotation}"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

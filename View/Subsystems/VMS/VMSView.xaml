@@ -1,0 +1,27 @@
+﻿<UserControl   x:Class="RSSE.VMSView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             xmlns:vm="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=vm:VMSViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="1,5">
+        <StackPanel Width="275" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">MFD</Label>
+            <Grid>
+                <Label>Dimensions :</Label>
+                <local:Vector2View HorizontalAlignment="Left" Margin="85,0,0,0"
+                               DataContext="{Binding Dimensions}"/>
+            </Grid>
+            <Grid>
+                <Label>FOV:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding NormFOV}"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="1,1,0,0" BorderBrush="Gray" Width="1" HorizontalAlignment="Left"/>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="RSSE.GeneralShipView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="600">
+    <DockPanel>
+    <StackPanel Width="300">
+        <Label HorizontalAlignment="Center" FontWeight="Bold">General</Label>
+        <Grid>
+            <Label>Name</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Name}"/>
+        </Grid>
+        <Grid>
+            <Label>UI Name</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=UIName}"/>
+        </Grid>
+        <Grid>
+            <Label>Description</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center" 
+                     TextWrapping="Wrap" AcceptsReturn="True" 
+                     Text="{Binding Path=Description}"/>
+        </Grid>
+        <Grid>
+            <Label>Ship class</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=ShipClass}"/>
+        </Grid>
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Physical characteristics</Label>
+        <Grid>
+            <Label>Ship size class</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=SizeClass}"/>
+        </Grid>
+        <Grid>
+            <Label>Mass</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Mass}"/>
+        </Grid>
+        <Grid>
+            <Label>Basic dimensions</Label>
+            <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
+                     DataContext="{Binding Path=BasicDimensions}"/>
+        </Grid>
+        <Grid>
+            <Label>Mean drag</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=MeanDRAGcoef}"/>
+        </Grid>
+        <Grid>
+            <Label>Hull reflectivity</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Hull_REFLECTIVITY}"/>
+        </Grid>
+        <Grid>
+            <Label>Interior volume</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=VolumeInterior}"/>
+        </Grid>
+        <Grid>
+            <Label>Cabin insulation %</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=CabinInsPercentage}"/>
+        </Grid>
+        <Grid>
+            <Label>Cargo volume</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=CargoVolume}"/>
+        </Grid>
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Onboard system characteristics</Label>
+        <Grid>
+            <Label>System init time:</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=SysInitTime}"/>
+        </Grid>
+        <Grid>
+            <Label>Power required</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=PwrRequired}"/>
+        </Grid>
+        <Grid>
+            <Label>Power startup req.</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=PwrStart}"/>
+        </Grid>
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+        <Grid>
+            <Label>Price</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=MSRPPrice}"/>
+        </Grid>
+        <Grid>
+            <Label>Expected life</Label>
+            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=ExpectedLife}"/>
+        </Grid>
+        
+    </StackPanel>
+    <StackPanel Width="300">
+        <Label HorizontalAlignment="Center" FontWeight="Bold">Configuration</Label>
+            <CheckBox IsChecked="{Binding Path=InteriorAvailable}" VerticalAlignment="Center" Margin="80,5">Interior available</CheckBox>
+            <CheckBox IsChecked="{Binding Path=AsCockpit}" VerticalAlignment="Center" Margin="80,5">As cockpit</CheckBox>
+            <CheckBox IsChecked="{Binding Path=LandingSkids}" VerticalAlignment="Center" Margin="80,5">Landing Skids</CheckBox>
+            <Grid>
+                <Label>Basic dimensions</Label>
+                <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
+                     DataContext="{Binding Path=BasicDimensions}"/>
+            </Grid>
+            <Grid>
+                <Label>Emergency light</Label>
+                <local:ColorView Margin="120,0,0,0" VerticalAlignment="Center"
+                     DataContext="{Binding Path=Emergencylight}"/>
+            </Grid>
+            <Grid>
+                <Label>Pilot MFD</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Pilot_MFD}"/>
+            </Grid>
+            <Grid>
+                <Label>Pilot CAW</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Pilot_CAW}"/>
+            </Grid>
+            <Grid>
+                <Label>Pilot VMS</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Pilot_VMS}"/>
+            </Grid>
+            <Grid>
+                <Label>Pilot CONTROLS</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Pilot_CONTROLS}"/>
+            </Grid>
+            <Grid>
+                <Label>Pilot INSTRUMENTS</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Path=Pilot_INSTRUMENTS}"/>
+            </Grid>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

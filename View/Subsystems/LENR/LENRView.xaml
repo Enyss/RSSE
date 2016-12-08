@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="RSSE.LENRView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             xmlns:vm="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=vm:LENRViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel Margin="1,5">
+        <StackPanel Width="275" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">LENR</Label>
+            
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+            <Grid>
+                <Label>Mount_MAX :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Mount_MAX}"/>
+            </Grid>
+            <Grid>
+                <Label>Total_ALLOWED :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Total_ALLOWED}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys1_EB :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys1_EB}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys1_quad :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys1_quad}"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="1,1,0,0" BorderBrush="Gray" Width="1" HorizontalAlignment="Left"/>
+    </DockPanel>
+</UserControl>

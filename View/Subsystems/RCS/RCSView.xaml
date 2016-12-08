@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="RSSE.RCSView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1100">
+    <DockPanel Margin="1,5">
+        <StackPanel Width="275" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">RCS</Label>
+            <Label HorizontalAlignment="Center"  FontWeight="Bold">Thrusters</Label>
+            <local:SelectBoxControl x:Name="ThrusterSelector" Height="150"
+                Label=""
+                ItemsSource="{Binding Thrusters}"
+                AddItem="{Binding AddRCSThrusterCommand}"
+                RemoveItem="{Binding RemoveRCSThrusterCommand}"/>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Selected thruster</Label>
+            <local:RCSThrusterView DataContext="{Binding SelectedItem, ElementName=ThrusterSelector}"/>
+        </StackPanel>
+        <Border BorderThickness="1,1,0,0" BorderBrush="Gray" Width="1" HorizontalAlignment="Left"/>
+    </DockPanel>
+</UserControl>

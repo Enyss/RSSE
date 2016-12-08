@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="RSSE.MeshCollisionDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"               
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="shapeEnumValues"
+            MethodName="GetValues" ObjectType="{x:Type System:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="local:MeshCollisionShapeEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <BooleanToVisibilityConverter x:Key="BoolToVisibility" />
+    </UserControl.Resources>
+    <StackPanel>
+        <CheckBox IsChecked="{Binding Path=UseCollision}">Use collision</CheckBox>
+        <StackPanel Visibility="{Binding Path=UseCollision, Converter={StaticResource BoolToVisibility}}">
+            <Grid>
+                <Label>Collision shape</Label>
+                <ComboBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     ItemsSource="{Binding Source={StaticResource shapeEnumValues}}"
+                     SelectedItem="{Binding Path=CollisionShape}"/>
+            </Grid>
+            <Grid Visibility="{Binding Path=HasShapeSize, Converter={StaticResource BoolToVisibility}}">
+                <Label>Dimensions</Label>
+                <local:Vector3View DataContext="{Binding Path=CollShapeSize}"/>
+            </Grid>
+            <Grid Visibility="{Binding Path=IsSphere, Converter={StaticResource BoolToVisibility}}">
+                <Label>Radius</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                         Text="{Binding Path=ShapeRadius}"/>
+            </Grid>
+            <CheckBox IsChecked="{Binding Path=CollAutogen}">Autogen collision</CheckBox>
+            <Grid>
+                <Label>CollisionObjectTotal</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding CollisionObjectTotal}"/>
+            </Grid>
+            <CheckBox IsChecked="{Binding Path=IsMovable}">Can move</CheckBox>
+            <StackPanel Visibility="{Binding Path=IsMovable, Converter={StaticResource BoolToVisibility}}">
+                <Grid>
+                    <Label>Mass</Label>
+                    <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Mass}"/>
+                </Grid>
+                <Grid>
+                    <Label>Friction</Label>
+                    <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+                     Text="{Binding Friction}"/>
+                </Grid>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,89 @@
+﻿<UserControl x:Class="RSSE.TMSView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             xmlns:vm="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=vm:TMSViewModel, IsDesignTimeCreatable=True}"
+             d:DesignHeight="600" d:DesignWidth="300">
+    <DockPanel Margin="1,5">
+        <StackPanel Width="275" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">TMS</Label>
+
+            <Grid>
+                <Label>Coolant tank capacity :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolTankCAP}"/>
+            </Grid>
+            <Grid>
+                <Label>Coolant :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolCoolant}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolAreaMAX:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolAreaMAX}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolAreaMIN:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolAreaMIN}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolAreaREFLECT:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolAreaREFLECT}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolLevelMAX:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolLevelMAX }"/>
+            </Grid>
+            <Grid>
+                <Label>CoolLinelength:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolLinelength}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolLoopTOTAL:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolLoopTOTAL}"/>
+            </Grid>
+            <Grid>
+                <Label>CoolPsiMAX:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding CoolPsiMAX}"/>
+            </Grid>
+            <Grid>
+                <Label>Heatpipe_SURFACEvolume:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Heatpipe_SURFACEvolume}"/>
+            </Grid>
+            <Grid>
+                <Label>Heatpipe_TOTAL:</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Heatpipe_TOTAL}"/>
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+            <Grid>
+                <Label>Mount_MAX :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Mount_MAX}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys_EB :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys_EB}"/>
+            </Grid>
+            <Grid>
+                <Label>Sys1_quad :</Label>
+                <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
+                     Text="{Binding Sys_quad}"/>
+            </Grid>
+        </StackPanel>
+        <Border BorderThickness="1,1,0,0" BorderBrush="Gray" Width="1" HorizontalAlignment="Left"/>
+    </DockPanel>
+</UserControl>

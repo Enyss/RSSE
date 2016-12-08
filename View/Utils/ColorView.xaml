@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="RSSE.ColorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="28" d:DesignWidth="300">
+    <DockPanel>
+        <Grid Width="55"  DockPanel.Dock="Right">
+            <Label Content="b" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=b}" Width="40" HorizontalAlignment="Right" Height="22" TabIndex="3"/>
+        </Grid>
+        <Grid Width="55"  DockPanel.Dock="Right">
+            <Label Content="g" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=g}" Width="40" HorizontalAlignment="Right" Height="22" TabIndex="2"/>
+        </Grid>
+        <Grid Width="55"  DockPanel.Dock="Right" HorizontalAlignment="Right">
+            <Label Content="r" HorizontalAlignment="Left" />
+            <TextBox Text="{Binding Path=r}" Width="40" HorizontalAlignment="Right" Height="22" TabIndex="1"/>
+        </Grid>
+    </DockPanel>
+</UserControl>
