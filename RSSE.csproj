@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>0.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -50,6 +50,10 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
@@ -78,12 +82,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DragAndDropLibrary\DragSource.cs" />
-    <Compile Include="DragAndDropLibrary\DragSourceBehaviour.cs" />
-    <Compile Include="DragAndDropLibrary\DropTarget.cs" />
-    <Compile Include="DragAndDropLibrary\DropTargetBehaviour.cs" />
-    <Compile Include="DragAndDropLibrary\IDragSource.cs" />
-    <Compile Include="DragAndDropLibrary\IDropTarget.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\DragSource.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\DragSourceBehaviour.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\DropTarget.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\DropTargetBehaviour.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\IDragSource.cs" />
+    <Compile Include="Behaviors\DragAndDropLibrary\IDropTarget.cs" />
     <Compile Include="View\GeneralShipView.xaml.cs">
       <DependentUpon>GeneralShipView.xaml</DependentUpon>
     </Compile>
@@ -290,6 +294,9 @@
     <Compile Include="View\Utils\DoFView.xaml.cs">
       <DependentUpon>DoFView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Utils\EditableTextBlock.xaml.cs">
+      <DependentUpon>EditableTextBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Utils\Vector2View.xaml.cs">
       <DependentUpon>Vector2View.xaml</DependentUpon>
     </Compile>
@@ -470,6 +477,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Utils\DoFView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Utils\EditableTextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

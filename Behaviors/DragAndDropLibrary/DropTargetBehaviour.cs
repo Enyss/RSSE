@@ -1,3 +1,12 @@
+/****************************************************************************/
+/*                                                                          */
+/*  Drag & drop library from                                                */
+/*  https://bitbucket.org/mkaluza/sharpfellows.toolkit                      */
+/*       Thanks for such a clean use !                                      */
+/*                                                                          */
+/****************************************************************************/
+
+
 using System.Windows;
 
 namespace RSSE

@@ -9,13 +9,15 @@ namespace RSSE
     public class Texture
     {
         public string name;
-        public int order;
 
-        public Texture(int order, string value)
+        public Texture(string value)
         {
             name = value;
         }
 
-        public Texture() { }
+        public Texture()
+        {
+            name = "default";
+        }
     }
 }

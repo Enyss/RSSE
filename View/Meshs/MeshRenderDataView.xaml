@@ -44,7 +44,7 @@
         <StackPanel>
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
-                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Setter Property="Visibility" Value="Visible" />
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding ElementName=RenderMode,Path=SelectedItem}" 
                                      Value="{x:Static local:MeshRenderModeEnum.Texture}">
@@ -74,13 +74,19 @@
                         Delete
                     </Button>
                 </StackPanel>
-
-                <DataGrid Name="TextureSelector" ItemsSource="{Binding Path=Textures}" Width="220" AutoGenerateColumns="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Order" IsReadOnly="True" Binding="{Binding Order}" Width="40"/>
-                        <DataGridTextColumn Header="Texture" IsReadOnly="False" Binding="{Binding Name}" Width="170"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+                <ListView Name="TextureSelector" ItemsSource="{Binding Path=Textures}" Width="220" Margin="5,0" AllowDrop="True"
+                          local:DropTargetBehaviour.DropTarget="{Binding Path=DropSource}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid local:DragSourceBehaviour.DragSource="{Binding Path=DragSource}"
+                                  local:DropTargetBehaviour.DropTarget="{Binding Path=DropSource}">
+                                <TextBlock Text="{Binding Order}" Width="30" HorizontalAlignment="Left" />
+                                <local:EditableTextBlock Text="{Binding Name, Mode=TwoWay}"
+                                                         Width="170" HorizontalAlignment="Left" Margin="30,0,0,0" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </DockPanel>
             
         </StackPanel>

@@ -72,7 +72,7 @@ namespace RSSE
             int i = 1;
             while (table["Texture"]["T" + i].Value != null)
             {
-                textures.Add(new Texture(i,table["Texture"]["T" + i].Value) );
+                textures.Add(new Texture(table["Texture"]["T" + i].Value) );
                 i++;
             }
         }
@@ -94,9 +94,9 @@ namespace RSSE
                     table["Shader"].Value = shader;
                     table["SUBfunction"].Value = subfunction;
                     table["Textures"].Value = textures.Count();
-                    foreach (Texture texture in textures) 
+                    for ( int i = 0; i < textures.Count; i++) 
                     {
-                        table["Texture"]["T" + texture.order].Value = texture.name;
+                        table["Texture"]["T" + i].Value = textures.ElementAt(i).name;
                     }
                     break;
             }

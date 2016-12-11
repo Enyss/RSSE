@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Windows;
 
 namespace RSSE
 {
@@ -35,7 +36,7 @@ namespace RSSE
 
             foreach (Texture texture in _render.textures)
             {
-                Textures.Add(new TextureViewModel(texture));
+                Textures.Add(new TextureViewModel(this, texture));
             }
         }
 
@@ -96,11 +97,44 @@ namespace RSSE
             }
         }
         #endregion
-        
+
+        #region Drag & drop 
+
+        private IDropTarget _dropSource;
+
+        public IDropTarget DropSource
+        {
+            get
+            {
+                if (_dropSource == null)
+                    _dropSource = new DropTarget<TextureViewModel>(GetDropEffects, Drop);
+
+                return _dropSource;
+            }
+        }
+
+        private object GetData(TextureViewModel mesh)
+        {
+            return this;
+        }
+
+        private void Drop(TextureViewModel child)
+        {
+            MoveTexture(child, null);
+        }
+
+        private DragDropEffects GetDropEffects(TextureViewModel mesh)
+        {
+            return DragDropEffects.Move;
+        }
+
+
+        #endregion
+
         public void AddTexture()
         {
             Texture tex = new Texture();
-            TextureViewModel vm = new TextureViewModel(tex);
+            TextureViewModel vm = new TextureViewModel(this, tex);
             Textures.Add(vm);
             _render.textures.Add(tex);
         }
@@ -108,6 +142,38 @@ namespace RSSE
         {
             Textures.Remove(texture);
             _render.textures.Remove(texture.Model);
+
+
+            // Update the texture order number.
+            foreach (TextureViewModel tex in Textures)
+            {
+                tex.OrderChanged();
+            }
+        }
+        public void MoveTexture(TextureViewModel texture, TextureViewModel place)
+        {
+            if (texture == place)
+                return;
+
+            Textures.Remove(texture);
+            _render.textures.Remove(texture.Model);
+
+            if (place != null)
+            {
+                Textures.Insert(Textures.IndexOf(place), texture);
+                _render.textures.Insert(_render.textures.IndexOf(place.Model), texture.Model);
+            }
+            else
+            {
+                Textures.Add(texture);
+                _render.textures.Add( texture.Model);
+            }
+
+            // Update the texture order number.
+            foreach (TextureViewModel tex in Textures)
+            {
+                tex.OrderChanged();
+            }
         }
     }
 }
