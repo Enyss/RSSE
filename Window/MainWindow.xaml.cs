@@ -18,7 +18,6 @@ using System.IO;
 
 
 
-
 namespace RSSE
 {
     /// <summary>
@@ -26,19 +25,31 @@ namespace RSSE
     /// </summary>
     public partial class MainWindow : Window
     {
-        Ship ship;
+        ShipHull ship;
+        Settings settings;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            try
+            {
+                 settings = Settings.Load<Settings>("settings.xml");
+            }
+            catch(FileNotFoundException e )
+            {
+                settings = new Settings();
+                SettingsWindows settingsWin = new SettingsWindows();
+                settingsWin.DataContext = settings;
+                settingsWin.Show();
+            }
             FileNew_Click(null, null);
         }
 
         private void FileNew_Click(object sender, RoutedEventArgs e)
         {
-            ship = new Ship();
-            RSSE_MainWindow.DataContext = new ShipViewModel(ship);
+            ship = new ShipHull();
+            RSSE_MainWindow.DataContext = new ShipHullViewModel(ship);
         }
 
         private void FileOpen_Click(object sender, RoutedEventArgs e)
@@ -53,9 +64,9 @@ namespace RSSE
                 string[] s = openFileDialog.FileName.Split('.', '\\', '/');
                 string name = s[s.Count() - 2];
 
-                ShipTable table = new ShipTable(name, content);
-                ship = new Ship(table);
-                RSSE_MainWindow.DataContext = new ShipViewModel(ship);
+                ShipHullTable table = new ShipHullTable(name, content);
+                ship = new ShipHull(table);
+                RSSE_MainWindow.DataContext = new ShipHullViewModel(ship);
             }
         }
 
@@ -70,10 +81,17 @@ namespace RSSE
             saveFileDialog.Filter = "ROG file (*.ROG)|*.ROG|Lua file (*.lua)|*.lua";
             if (saveFileDialog.ShowDialog() == true)
             {
-                ShipTable table = ship.ToShipTable();
+                ShipHullTable table = ship.ToShipTable();
                 string serialized = table.ToString();
                 File.WriteAllText(saveFileDialog.FileName, serialized);
             }
+        }
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindows settingsWin = new SettingsWindows();
+            settingsWin.DataContext = settings;
+            settingsWin.Show();
         }
     }
 }

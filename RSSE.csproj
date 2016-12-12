@@ -56,6 +56,10 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AvalonLibrary, Version=2.3.0.0, Culture=neutral, PublicKeyToken=b5d01516e28df45f, processorArchitecture=MSIL">
+      <HintPath>packages\AvalonLibrary.2.3.0.0\lib\net40\AvalonLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NLua, Version=1.3.2.0, Culture=neutral, PublicKeyToken=8df2ab518030ea95, processorArchitecture=MSIL">
       <HintPath>packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
       <Private>True</Private>
@@ -88,208 +92,217 @@
     <Compile Include="Behaviors\DragAndDropLibrary\DropTargetBehaviour.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\IDragSource.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\IDropTarget.cs" />
-    <Compile Include="View\GeneralShipView.xaml.cs">
-      <DependentUpon>GeneralShipView.xaml</DependentUpon>
+    <Compile Include="Model\ShipHullManager.cs" />
+    <Compile Include="Utils\PersistableObject.cs" />
+    <Compile Include="ViewModel\ApplicationStartupViewModel.cs" />
+    <Compile Include="View\Hull\GeneralShipHullView.xaml.cs">
+      <DependentUpon>GeneralShipHullView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Meshs\MeshSurfacesDataView.xaml.cs">
+    <Compile Include="View\Hull\Meshs\MeshSurfacesDataView.xaml.cs">
       <DependentUpon>MeshSurfacesDataView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Mesh\Enums\SurfaceTypeEnum.cs" />
-    <Compile Include="ViewModel\Mesh\MeshSurfacesDataViewModel.cs" />
-    <Compile Include="View\Meshs\SurfaceView.xaml.cs">
+    <Compile Include="Model\Hull\Mesh\Enums\SurfaceTypeEnum.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshSurfacesDataViewModel.cs" />
+    <Compile Include="View\Hull\Meshs\SurfaceView.xaml.cs">
       <DependentUpon>SurfaceView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Mesh\SurfaceViewModel.cs" />
-    <Compile Include="View\Meshs\MeshStateDataView.xaml.cs">
+    <Compile Include="ViewModel\Hull\Mesh\SurfaceViewModel.cs" />
+    <Compile Include="View\Hull\Meshs\MeshStateDataView.xaml.cs">
       <DependentUpon>MeshStateDataView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Mesh\Enums\MeshCollisionShapeEnum.cs" />
-    <Compile Include="Model\Mesh\Enums\MeshRenderModeEnum.cs" />
-    <Compile Include="Model\Mesh\Enums\MeshRenderShadowModeEnum.cs" />
-    <Compile Include="Model\Mesh\Enums\StateMotionTypeEnum.cs" />
-    <Compile Include="Model\Mesh\MeshCollisionData.cs" />
-    <Compile Include="Model\Mesh\MeshStatesData.cs" />
-    <Compile Include="Model\Mesh\MeshSurfacesData.cs" />
-    <Compile Include="Model\Mesh\Enums\MeshTypeEnum.cs" />
-    <Compile Include="Model\Subsystems\AttachementsManager\AttachementsManager.cs" />
-    <Compile Include="Model\Subsystems\AttachementsManager\Attachement.cs" />
-    <Compile Include="Model\Subsystems\BMS\BMS.cs" />
-    <Compile Include="Model\Subsystems\CameraManager\Camera.cs" />
-    <Compile Include="Model\Subsystems\CameraManager\CameraManager.cs" />
-    <Compile Include="Model\Subsystems\COMM\COMM.cs" />
-    <Compile Include="Model\Subsystems\CSSM\CSSM.cs" />
-    <Compile Include="Model\Subsystems\ECS\ECS.cs" />
-    <Compile Include="Model\Subsystems\FCM\FCM.cs" />
-    <Compile Include="Model\Subsystems\Legacy\LegacySystems.cs" />
-    <Compile Include="Model\Subsystems\LENR\LENR.cs" />
-    <Compile Include="Model\Subsystems\LSS\LSS.cs" />
-    <Compile Include="Model\Subsystems\LSS\Scrubber.cs" />
-    <Compile Include="Model\Subsystems\MES\MES.cs" />
-    <Compile Include="Model\Subsystems\MES\MESEngine.cs" />
-    <Compile Include="Model\Subsystems\MFD\MFD.cs" />
-    <Compile Include="Model\Subsystems\MTS\MTS.cs" />
-    <Compile Include="Model\Subsystems\MTS\MTSBooster.cs" />
-    <Compile Include="Model\Subsystems\MTS\MTSController.cs" />
-    <Compile Include="Model\Subsystems\NAS\NAS.cs" />
-    <Compile Include="Model\Subsystems\RCS\RCSThruster.cs" />
-    <Compile Include="Model\Subsystems\RMS\RMS.cs" />
-    <Compile Include="Model\Subsystems\TMS\TMS.cs" />
-    <Compile Include="Model\Subsystems\VMS\VMS.cs" />
-    <Compile Include="ViewModel\Mesh\MeshStateDataViewModel.cs" />
-    <Compile Include="View\Meshs\StateView.xaml.cs">
+    <Compile Include="Model\Hull\Mesh\Enums\MeshCollisionShapeEnum.cs" />
+    <Compile Include="Model\Hull\Mesh\Enums\MeshRenderModeEnum.cs" />
+    <Compile Include="Model\Hull\Mesh\Enums\MeshRenderShadowModeEnum.cs" />
+    <Compile Include="Model\Hull\Mesh\Enums\StateMotionTypeEnum.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshCollisionData.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshStatesData.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshSurfacesData.cs" />
+    <Compile Include="Model\Hull\Mesh\Enums\MeshTypeEnum.cs" />
+    <Compile Include="Model\Hull\Subsystems\AttachementsManager\AttachementsManager.cs" />
+    <Compile Include="Model\Hull\Subsystems\AttachementsManager\Attachement.cs" />
+    <Compile Include="Model\Hull\Subsystems\BMS\BMS.cs" />
+    <Compile Include="Model\Hull\Subsystems\CameraManager\Camera.cs" />
+    <Compile Include="Model\Hull\Subsystems\CameraManager\CameraManager.cs" />
+    <Compile Include="Model\Hull\Subsystems\COMM\COMM.cs" />
+    <Compile Include="Model\Hull\Subsystems\CSSM\CSSM.cs" />
+    <Compile Include="Model\Hull\Subsystems\ECS\ECS.cs" />
+    <Compile Include="Model\Hull\Subsystems\FCM\FCM.cs" />
+    <Compile Include="Model\Hull\Subsystems\Legacy\LegacySystems.cs" />
+    <Compile Include="Model\Hull\Subsystems\LENR\LENR.cs" />
+    <Compile Include="Model\Hull\Subsystems\LSS\LSS.cs" />
+    <Compile Include="Model\Hull\Subsystems\LSS\Scrubber.cs" />
+    <Compile Include="Model\Hull\Subsystems\MES\MES.cs" />
+    <Compile Include="Model\Hull\Subsystems\MES\MESEngine.cs" />
+    <Compile Include="Model\Hull\Subsystems\MFD\MFD.cs" />
+    <Compile Include="Model\Hull\Subsystems\MTS\MTS.cs" />
+    <Compile Include="Model\Hull\Subsystems\MTS\MTSBooster.cs" />
+    <Compile Include="Model\Hull\Subsystems\MTS\MTSController.cs" />
+    <Compile Include="Model\Hull\Subsystems\NAS\NAS.cs" />
+    <Compile Include="Model\Hull\Subsystems\RCS\RCSThruster.cs" />
+    <Compile Include="Model\Hull\Subsystems\RMS\RMS.cs" />
+    <Compile Include="Model\Hull\Subsystems\TMS\TMS.cs" />
+    <Compile Include="Model\Hull\Subsystems\VMS\VMS.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshStateDataViewModel.cs" />
+    <Compile Include="View\Hull\Meshs\StateView.xaml.cs">
       <DependentUpon>StateView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Bictionary.cs" />
     <Compile Include="Utils\DoF.cs" />
-    <Compile Include="Model\Subsystems\RCS\RCS.cs" />
-    <Compile Include="Model\Subsystems\SubsystemTypeEnum.cs" />
-    <Compile Include="Model\Subsystems\SubsystemsManager.cs" />
+    <Compile Include="Model\Hull\Subsystems\RCS\RCS.cs" />
+    <Compile Include="Model\Hull\Subsystems\SubsystemTypeEnum.cs" />
+    <Compile Include="Model\Hull\Subsystems\SubsystemsManager.cs" />
     <Compile Include="Utils\ObservableObject.cs" />
-    <Compile Include="ViewModel\Mesh\MeshCollisionDataViewModel.cs" />
-    <Compile Include="ViewModel\Mesh\MeshRenderDataViewModel.cs" />
-    <Compile Include="ViewModel\Mesh\MeshTreeViewModel.cs" />
-    <Compile Include="ViewModel\Mesh\StateViewModel.cs" />
-    <Compile Include="ViewModel\Mesh\TextureViewModel.cs" />
-    <Compile Include="ViewModel\ShipViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\AccessoriesManagerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\IAccessoiresManagerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\ISeatViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\ISpeakerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\SeatViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshCollisionDataViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshRenderDataViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshTreeViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\StateViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\TextureViewModel.cs" />
+    <Compile Include="ViewModel\Hull\ShipHullViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\AccessoriesManagerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\Interface\IAccessoiresManagerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\Interface\ISeatViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\Interface\ISpeakerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\SeatViewModel.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AccessoriesManager\SpeakerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\VMS\VMSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\TMS\TMSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\RMS\RMSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\RCS\RCSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\RCS\RCSThrusterViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\RCM\RCMViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\NAS\NASViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MTS\MTSControllerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MTS\MTSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MTS\MTSBoosterViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AttachementsManager\AttachementsManagerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\AttachementsManager\AttachementViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MFD\MFDViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\LENR\LENRViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\FCM\FCMViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\ECS\ECSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\CSSM\CSSMViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\COMM\COMMViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\BMS\BMSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\CameraManager\CameraManagerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\CameraManager\CameraViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MES\MESViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\MES\MESEngine.cs" />
-    <Compile Include="ViewModel\Subsystems\LSS\LSSViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\LSS\ScrubberViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\SubsystemsManagerViewModel.cs" />
-    <Compile Include="ViewModel\Subsystems\SubsystemViewModel.cs" />
-    <Compile Include="View\Meshs\MeshCollisionDataView.xaml.cs">
+    <Compile Include="ViewModel\Hull\Subsystems\AccessoriesManager\SpeakerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\VMS\VMSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\TMS\TMSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\RMS\RMSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\RCS\RCSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\RCS\RCSThrusterViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\RCM\RCMViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\NAS\NASViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MTS\MTSControllerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MTS\MTSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MTS\MTSBoosterViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AttachementsManager\AttachementsManagerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\AttachementsManager\AttachementViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MFD\MFDViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\LENR\LENRViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\FCM\FCMViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\ECS\ECSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\CSSM\CSSMViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\COMM\COMMViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\BMS\BMSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\CameraManager\CameraManagerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\CameraManager\CameraViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MES\MESViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\MES\MESEngine.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\LSS\LSSViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\LSS\ScrubberViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\SubsystemsManagerViewModel.cs" />
+    <Compile Include="ViewModel\Hull\Subsystems\SubsystemViewModel.cs" />
+    <Compile Include="View\Hull\Meshs\MeshCollisionDataView.xaml.cs">
       <DependentUpon>MeshCollisionDataView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Meshs\MeshRenderDataView.xaml.cs">
+    <Compile Include="View\Hull\Meshs\MeshRenderDataView.xaml.cs">
       <DependentUpon>MeshRenderDataView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Meshs\MeshTreeView.xaml.cs">
+    <Compile Include="View\Hull\Meshs\MeshTreeView.xaml.cs">
       <DependentUpon>MeshTreeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Meshs\MeshView.xaml.cs">
+    <Compile Include="View\Hull\Meshs\MeshView.xaml.cs">
       <DependentUpon>MeshView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\AccessoiresManager\AccessoriesManagerView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\AccessoiresManager\AccessoriesManagerView.xaml.cs">
       <DependentUpon>AccessoriesManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\AccessoiresManager\SeatView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\AccessoiresManager\SeatView.xaml.cs">
       <DependentUpon>SeatView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Subsystems\AccessoriesManager\AccessoriesManager.cs" />
-    <Compile Include="Model\Subsystems\AccessoriesManager\Speaker.cs" />
-    <Compile Include="Model\Subsystems\Subsystem.cs" />
+    <Compile Include="Model\Hull\Subsystems\AccessoriesManager\AccessoriesManager.cs" />
+    <Compile Include="Model\Hull\Subsystems\AccessoriesManager\Speaker.cs" />
+    <Compile Include="Model\Hull\Subsystems\Subsystem.cs" />
     <Compile Include="Utils\Area3D.cs" />
-    <Compile Include="Model\Subsystems\AccessoriesManager\Seat.cs" />
-    <Compile Include="View\Subsystems\AccessoiresManager\SpeakerView.xaml.cs">
+    <Compile Include="Model\Hull\Subsystems\AccessoriesManager\Seat.cs" />
+    <Compile Include="View\Hull\Subsystems\AccessoiresManager\SpeakerView.xaml.cs">
       <DependentUpon>SpeakerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\Subsystems\SubsystemsManagerTemplateSelector.cs" />
-    <Compile Include="View\Subsystems\VMS\VMSView.xaml.cs">
+    <Compile Include="ViewModel\Hull\Subsystems\SubsystemsManagerTemplateSelector.cs" />
+    <Compile Include="View\Hull\Subsystems\VMS\VMSView.xaml.cs">
       <DependentUpon>VMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\TMS\RMSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\TMS\RMSView.xaml.cs">
       <DependentUpon>RMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\RMS\RMSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\RMS\RMSView.xaml.cs">
       <DependentUpon>RMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\RCS\RCSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\RCS\RCSView.xaml.cs">
       <DependentUpon>RCSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\RCS\RCSThrusterView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\RCS\RCSThrusterView.xaml.cs">
       <DependentUpon>RCSThrusterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\AttachementsManager\AttachementsManagerView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\AttachementsManager\AttachementsManagerView.xaml.cs">
       <DependentUpon>AttachementsManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\AttachementsManager\AttachementView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\AttachementsManager\AttachementView.xaml.cs">
       <DependentUpon>AttachementView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\RCM\RCMView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\RCM\RCMView.xaml.cs">
       <DependentUpon>RCMView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\NAS\NASView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\NAS\NASView.xaml.cs">
       <DependentUpon>NASView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MTS\MTSControllerView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MTS\MTSControllerView.xaml.cs">
       <DependentUpon>MTSControllerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MTS\MTSBoosterView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MTS\MTSBoosterView.xaml.cs">
       <DependentUpon>MTSBoosterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MTS\MTSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MTS\MTSView.xaml.cs">
       <DependentUpon>MTSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MFD\MFDView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MFD\MFDView.xaml.cs">
       <DependentUpon>MFDView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MES\MESView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MES\MESView.xaml.cs">
       <DependentUpon>MESView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\MES\MESEngineView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\MES\MESEngineView.xaml.cs">
       <DependentUpon>MESEngineView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\LSS\LSSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\LSS\LSSView.xaml.cs">
       <DependentUpon>LSSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\LSS\ScrubberView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\LSS\ScrubberView.xaml.cs">
       <DependentUpon>ScrubberView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\LENR\LENRView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\LENR\LENRView.xaml.cs">
       <DependentUpon>LENRView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\FCM\FCMView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\FCM\FCMView.xaml.cs">
       <DependentUpon>FCMView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\ECS\ECSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\ECS\ECSView.xaml.cs">
       <DependentUpon>ECSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\CSSM\CSSMView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\CSSM\CSSMView.xaml.cs">
       <DependentUpon>CSSMView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\COMM\COMMView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\COMM\COMMView.xaml.cs">
       <DependentUpon>COMMView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\BMS\BMSView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\BMS\BMSView.xaml.cs">
       <DependentUpon>BMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\CameraManager\CameraManagerView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\CameraManager\CameraManagerView.xaml.cs">
       <DependentUpon>CameraManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\CameraManager\CameraView.xaml.cs">
+    <Compile Include="View\Hull\Subsystems\CameraManager\CameraView.xaml.cs">
       <DependentUpon>CameraView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Subsystems\RCM\RCM.cs" />
-    <Compile Include="View\Subsystems\SubsystemsManagerView.xaml.cs">
+    <Compile Include="Model\Hull\Subsystems\RCM\RCM.cs" />
+    <Compile Include="View\Hull\Subsystems\SubsystemsManagerView.xaml.cs">
       <DependentUpon>SubsystemsManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuPageView.xaml.cs">
+      <DependentUpon>MenuPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ShipHullPageView.xaml.cs">
+      <DependentUpon>ShipHullPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Utils\DoFView.xaml.cs">
       <DependentUpon>DoFView.xaml</DependentUpon>
@@ -306,16 +319,16 @@
     <Compile Include="View\Utils\Vector3View.xaml.cs">
       <DependentUpon>Vector3View.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Mesh\Mesh.cs" />
-    <Compile Include="Model\Mesh\MeshLightData.cs" />
-    <Compile Include="Model\Mesh\MeshRenderData.cs" />
-    <Compile Include="Model\Mesh\MeshCollection.cs" />
-    <Compile Include="ViewModel\Mesh\MeshViewModel.cs" />
-    <Compile Include="Model\Mesh\State.cs" />
-    <Compile Include="Model\Mesh\Surface.cs" />
-    <Compile Include="Model\Mesh\Texture.cs" />
-    <Compile Include="Model\Ship.cs" />
-    <Compile Include="Model\ShipTable.cs" />
+    <Compile Include="Model\Hull\Mesh\Mesh.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshLightData.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshRenderData.cs" />
+    <Compile Include="Model\Hull\Mesh\MeshCollection.cs" />
+    <Compile Include="ViewModel\Hull\Mesh\MeshViewModel.cs" />
+    <Compile Include="Model\Hull\Mesh\State.cs" />
+    <Compile Include="Model\Hull\Mesh\Surface.cs" />
+    <Compile Include="Model\Hull\Mesh\Texture.cs" />
+    <Compile Include="Model\Hull\ShipHull.cs" />
+    <Compile Include="Model\Hull\ShipHullTable.cs" />
     <Compile Include="Utils\Color.cs" />
     <Compile Include="View\Utils\SelectBoxControl.xaml.cs">
       <DependentUpon>SelectBoxControl.xaml</DependentUpon>
@@ -324,155 +337,167 @@
     <Compile Include="Utils\Table.cs" />
     <Compile Include="Utils\Vector2.cs" />
     <Compile Include="Utils\Vector3.cs" />
-    <Page Include="View\GeneralShipView.xaml">
+    <Compile Include="Window\Settings.cs" />
+    <Compile Include="Window\SettingsWindows.xaml.cs">
+      <DependentUpon>SettingsWindows.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\Hull\GeneralShipHullView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshSurfacesDataView.xaml">
+    <Page Include="View\Hull\Meshs\MeshSurfacesDataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\SurfaceView.xaml">
+    <Page Include="View\Hull\Meshs\SurfaceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshStateDataView.xaml">
+    <Page Include="View\Hull\Meshs\MeshStateDataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\StateView.xaml">
+    <Page Include="View\Hull\Meshs\StateView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshCollisionDataView.xaml">
+    <Page Include="View\Hull\Meshs\MeshCollisionDataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshRenderDataView.xaml">
+    <Page Include="View\Hull\Meshs\MeshRenderDataView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshTreeView.xaml">
+    <Page Include="View\Hull\Meshs\MeshTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Meshs\MeshView.xaml">
+    <Page Include="View\Hull\Meshs\MeshView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\AccessoiresManager\AccessoriesManagerView.xaml">
+    <Page Include="View\Hull\Subsystems\AccessoiresManager\AccessoriesManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\AccessoiresManager\SeatView.xaml">
+    <Page Include="View\Hull\Subsystems\AccessoiresManager\SeatView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\AccessoiresManager\SpeakerView.xaml">
+    <Page Include="View\Hull\Subsystems\AccessoiresManager\SpeakerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\VMS\VMSView.xaml">
+    <Page Include="View\Hull\Subsystems\VMS\VMSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\TMS\RMSView.xaml">
+    <Page Include="View\Hull\Subsystems\TMS\RMSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\RMS\RMSView.xaml">
+    <Page Include="View\Hull\Subsystems\RMS\RMSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\RCS\RCSView.xaml">
+    <Page Include="View\Hull\Subsystems\RCS\RCSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\RCS\RCSThrusterView.xaml">
+    <Page Include="View\Hull\Subsystems\RCS\RCSThrusterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\AttachementsManager\AttachementsManagerView.xaml">
+    <Page Include="View\Hull\Subsystems\AttachementsManager\AttachementsManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\AttachementsManager\AttachementView.xaml">
+    <Page Include="View\Hull\Subsystems\AttachementsManager\AttachementView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\RCM\RCMView.xaml">
+    <Page Include="View\Hull\Subsystems\RCM\RCMView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\NAS\NASView.xaml">
+    <Page Include="View\Hull\Subsystems\NAS\NASView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MTS\MTSControllerView.xaml">
+    <Page Include="View\Hull\Subsystems\MTS\MTSControllerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MTS\MTSBoosterView.xaml">
+    <Page Include="View\Hull\Subsystems\MTS\MTSBoosterView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MTS\MTSView.xaml">
+    <Page Include="View\Hull\Subsystems\MTS\MTSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MFD\MFDView.xaml">
+    <Page Include="View\Hull\Subsystems\MFD\MFDView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MES\MESView.xaml">
+    <Page Include="View\Hull\Subsystems\MES\MESView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\MES\MESEngineView.xaml">
+    <Page Include="View\Hull\Subsystems\MES\MESEngineView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\LSS\LSSView.xaml">
+    <Page Include="View\Hull\Subsystems\LSS\LSSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\LSS\ScrubberView.xaml">
+    <Page Include="View\Hull\Subsystems\LSS\ScrubberView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\LENR\LENRView.xaml">
+    <Page Include="View\Hull\Subsystems\LENR\LENRView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\FCM\FCMView.xaml">
+    <Page Include="View\Hull\Subsystems\FCM\FCMView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\ECS\ECSView.xaml">
+    <Page Include="View\Hull\Subsystems\ECS\ECSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\CSSM\CSSMView.xaml">
+    <Page Include="View\Hull\Subsystems\CSSM\CSSMView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\COMM\COMMView.xaml">
+    <Page Include="View\Hull\Subsystems\COMM\COMMView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\BMS\BMSView.xaml">
+    <Page Include="View\Hull\Subsystems\BMS\BMSView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\CameraManager\CameraManagerView.xaml">
+    <Page Include="View\Hull\Subsystems\CameraManager\CameraManagerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\CameraManager\CameraView.xaml">
+    <Page Include="View\Hull\Subsystems\CameraManager\CameraView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Subsystems\SubsystemsManagerView.xaml">
+    <Page Include="View\Hull\Subsystems\SubsystemsManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ShipHullPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -509,6 +534,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\Utils\SelectBoxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\SettingsWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -553,6 +582,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
