@@ -25,73 +25,13 @@ namespace RSSE
     /// </summary>
     public partial class MainWindow : Window
     {
-        ShipHull ship;
-        Settings settings;
 
         public MainWindow()
         {
             InitializeComponent();
-
-            try
-            {
-                 settings = Settings.Load<Settings>("settings.xml");
-            }
-            catch(FileNotFoundException e )
-            {
-                settings = new Settings();
-                SettingsWindows settingsWin = new SettingsWindows();
-                settingsWin.DataContext = settings;
-                settingsWin.Show();
-            }
-            FileNew_Click(null, null);
+            
+            DataContext = new ApplicationStartupViewModel();
         }
-
-        private void FileNew_Click(object sender, RoutedEventArgs e)
-        {
-            ship = new ShipHull();
-            RSSE_MainWindow.DataContext = new ShipHullViewModel(ship);
-        }
-
-        private void FileOpen_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "ROG file (*.ROG)|*.ROG|Lua file (*.lua)|*.lua";
-            if (openFileDialog.ShowDialog() == true)
-            {
-                string content = File.ReadAllText(openFileDialog.FileName);
-
-                //get the basename : no better solution? 
-                string[] s = openFileDialog.FileName.Split('.', '\\', '/');
-                string name = s[s.Count() - 2];
-
-                ShipHullTable table = new ShipHullTable(name, content);
-                ship = new ShipHull(table);
-                RSSE_MainWindow.DataContext = new ShipHullViewModel(ship);
-            }
-        }
-
-        private void FileSave_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void FileSaveAs_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "ROG file (*.ROG)|*.ROG|Lua file (*.lua)|*.lua";
-            if (saveFileDialog.ShowDialog() == true)
-            {
-                ShipHullTable table = ship.ToShipTable();
-                string serialized = table.ToString();
-                File.WriteAllText(saveFileDialog.FileName, serialized);
-            }
-        }
-
-        private void Settings_Click(object sender, RoutedEventArgs e)
-        {
-            SettingsWindows settingsWin = new SettingsWindows();
-            settingsWin.DataContext = settings;
-            settingsWin.Show();
-        }
+        
     }
 }

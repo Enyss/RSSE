@@ -15,12 +15,10 @@ using System.Windows.Shapes;
 
 namespace RSSE
 {
-    /// <summary>
-    /// Logique d'interaction pour MenuPageView.xaml
-    /// </summary>
-    public partial class MenuPageView : Page
+
+    public partial class MenuView : UserControl
     {
-        public MenuPageView()
+        public MenuView()
         {
             InitializeComponent();
         }

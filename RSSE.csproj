@@ -298,11 +298,11 @@
     <Compile Include="View\Hull\Subsystems\SubsystemsManagerView.xaml.cs">
       <DependentUpon>SubsystemsManagerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MenuPageView.xaml.cs">
-      <DependentUpon>MenuPageView.xaml</DependentUpon>
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ShipHullPageView.xaml.cs">
-      <DependentUpon>ShipHullPageView.xaml</DependentUpon>
+    <Compile Include="View\ShipHullView.xaml.cs">
+      <DependentUpon>ShipHullView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Utils\DoFView.xaml.cs">
       <DependentUpon>DoFView.xaml</DependentUpon>
@@ -338,8 +338,8 @@
     <Compile Include="Utils\Vector2.cs" />
     <Compile Include="Utils\Vector3.cs" />
     <Compile Include="Window\Settings.cs" />
-    <Compile Include="Window\SettingsWindows.xaml.cs">
-      <DependentUpon>SettingsWindows.xaml</DependentUpon>
+    <Compile Include="Window\StartupSettingsWindows.xaml.cs">
+      <DependentUpon>StartupSettingsWindows.xaml</DependentUpon>
     </Compile>
     <Page Include="View\Hull\GeneralShipHullView.xaml">
       <SubType>Designer</SubType>
@@ -493,11 +493,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MenuPageView.xaml">
+    <Page Include="View\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ShipHullPageView.xaml">
+    <Page Include="View\ShipHullView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -537,7 +537,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window\SettingsWindows.xaml">
+    <Page Include="Window\StartupSettingsWindows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

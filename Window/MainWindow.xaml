@@ -6,29 +6,24 @@
         x:Class="RSSE.MainWindow"
         mc:Ignorable="d"
         x:Name="RSSE_MainWindow"
+        d:DataContext="{d:DesignInstance Type=local:ApplicationStartupViewModel}"
         Title="RSSE : The Rogue System Ship Editor" Height="900" Width="1100" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <DataTemplate DataType="{x:Type local:ShipHullViewModel}">
-            <local:ShipHullPageView/>
+            <local:ShipHullView/>
         </DataTemplate>
         <DataTemplate DataType="{x:Type local:ApplicationStartupViewModel}">
-            <local:MenuPageView/>
+            <local:MenuView/>
         </DataTemplate>
-
     </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" Click="FileNew_Click"/>
-                <MenuItem Header="_Open" Click="FileOpen_Click" />
-                <MenuItem Header="Save _as" Click="FileSaveAs_Click" />
-                <Separator />
-                <MenuItem Header="_Exit" />
-            </MenuItem>
-            <MenuItem Header="_Settings">
-                <MenuItem Header="_Settings" Click="Settings_Click"/>
-            </MenuItem>
-        </Menu>
-        
+        <Grid DockPanel.Dock="Top">
+            <Button Width="40" HorizontalAlignment="Left"
+                    Command="{Binding Path=OpenMainMenuCommand}">Home</Button>
+            <TextBlock  HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" TextDecorations="{x:Null}" 
+                   Foreground="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"
+                   Text="{Binding Path=selectedViewModel.Title}"/>
+        </Grid>
+        <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding Path=SelectedViewModel}"/>
     </DockPanel>
 </Window>

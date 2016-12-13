@@ -15,12 +15,10 @@ using System.Windows.Shapes;
 
 namespace RSSE
 {
-    /// <summary>
-    /// Logique d'interaction pour ShipHullPageView.xaml
-    /// </summary>
-    public partial class ShipHullPageView : Page
+
+    public partial class ShipHullView : UserControl
     {
-        public ShipHullPageView()
+        public ShipHullView()
         {
             InitializeComponent();
         }

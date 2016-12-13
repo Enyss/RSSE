@@ -8,6 +8,8 @@ namespace RSSE
 {
     public class ShipHullViewModel : ObservableObject
     {
+        public string Title { get { return UIName + " Hull"; } }
+
         public ShipHull _ship;
 
         public SubsystemsManagerViewModel Subsystems { get; set; }

@@ -32,7 +32,9 @@ namespace RSSE
             shipHulls = new List<ShipHull>();
             for(int i=1; i<=shipHullsTable["Total"].IntValue; i++)
             {
-                ShipHullTable table = new ShipHullTable(path + shipHullsTable["Ship" + i]["Name"].Value + ".ROG");
+                string name = shipHullsTable["Ship" + i]["Name"].Value;
+                string file = path + name + ".ROG";
+                ShipHullTable table = new ShipHullTable(name, File.ReadAllText(file));
                 shipHulls.Add(new ShipHull(table) );
             }
         }

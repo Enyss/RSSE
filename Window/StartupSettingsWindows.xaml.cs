@@ -20,9 +20,9 @@ namespace RSSE
     /// <summary>
     /// Logique d'interaction pour SettingsWindows.xaml
     /// </summary>
-    public partial class SettingsWindows : Window
+    public partial class StartupSettingsWindows : Window
     {
-        public SettingsWindows()
+        public StartupSettingsWindows()
         {
             InitializeComponent();
         }
