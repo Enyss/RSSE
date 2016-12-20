@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RSSE"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000">
+             d:DesignHeight="700" d:DesignWidth="1200">
     <DockPanel>
         <DockPanel Width="250"  HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontWeight="Bold" FontSize="16" DockPanel.Dock="Top">Meshes</Label>
@@ -34,6 +34,6 @@
             </TreeView>
         </DockPanel>
         <local:MeshView DataContext="{Binding ElementName=MeshSelector, Path=SelectedItem}"/>
-        
+        <local:OGLSceneView Scene="{Binding Path=Scene}"/>
     </DockPanel>
 </UserControl>

@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="RSSE.HullEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RSSE"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1200">
+    <DockPanel>
+        <TextBlock Text="{Binding Path=Title}" DockPanel.Dock="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+        <TabControl DockPanel.Dock="Top">
+            <TabItem Header="General">
+                <local:GeneralShipView DataContext="{Binding}"/>
+            </TabItem>
+            <TabItem Header="Subsystems">
+                <local:SubsystemsManagerView DataContext="{Binding Path=Subsystems}"/>
+            </TabItem>
+            <TabItem Header="Interior meshs">
+                <local:MeshTreeView DataContext="{Binding Path=InteriorMeshes}"/>
+            </TabItem>
+            <TabItem Header="Exterior meshs">
+                <local:MeshTreeView DataContext="{Binding Path=ExteriorMeshes}"/>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
+</UserControl>

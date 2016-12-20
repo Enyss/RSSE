@@ -26,19 +26,33 @@ namespace RSSE
     /// </summary>
     public partial class MainWindow : Window
     {
-        Ship ship;
+        Appli appli;
 
         public MainWindow()
         {
+            appli = Appli.Instance;
+            DataContext = appli;
+
             InitializeComponent();
+
+
+            appli.LoadSettings("settings.xml");
+            if ( appli.Settings.RogueSysemFileRoot == null )
+            {
+                StartupSettingsWindows setBaseFolder = new StartupSettingsWindows();
+                setBaseFolder.ShowDialog();
+                appli.SaveSettings("settings.xml");
+            }
+
 
             FileNew_Click(null, null);
         }
 
         private void FileNew_Click(object sender, RoutedEventArgs e)
         {
-            ship = new Ship();
-            RSSE_MainWindow.DataContext = new ShipViewModel(ship);
+            Ship ship = new Ship();
+            appli.ShipName = ship.name;
+            appli.CurrentViewModel = new ShipViewModel(ship);
         }
 
         private void FileOpen_Click(object sender, RoutedEventArgs e)
@@ -54,8 +68,9 @@ namespace RSSE
                 string name = s[s.Count() - 2];
 
                 ShipTable table = new ShipTable(name, content);
-                ship = new Ship(table);
-                RSSE_MainWindow.DataContext = new ShipViewModel(ship);
+                Ship ship = new Ship(table);
+                appli.ShipName = ship.name;
+                appli.CurrentViewModel = new ShipViewModel(ship);
             }
         }
 
@@ -66,7 +81,7 @@ namespace RSSE
 
         private void FileSaveAs_Click(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            /*SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "ROG file (*.ROG)|*.ROG|Lua file (*.lua)|*.lua";
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -74,6 +89,7 @@ namespace RSSE
                 string serialized = table.ToString();
                 File.WriteAllText(saveFileDialog.FileName, serialized);
             }
+            */
         }
     }
 }

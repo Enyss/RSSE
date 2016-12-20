@@ -136,6 +136,7 @@ namespace RSSE
             cabinInsPercentage = table.ship["CabinINSpercentage"].Value;
             interiorAvailable = table.ship["InteriorAvailable"].Value > 0.5;
             playerSTART = new Vector3(table.ship["playerSTART"]);
+
             emergencylight = new Color(table.ship["color_EMERlight"]);
             asCockpit = table.ship["AsCockpit"].Value > 0.5;
             landingSkids = table.ship["LandingSkids"].Value > 0.5;

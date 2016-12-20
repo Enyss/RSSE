@@ -21,8 +21,8 @@ namespace RSSE
 
         public Vector2(Table table)
         {
-            x = table["x"].Value;
-            y = table["y"].Value;
+            x = table["x"].DoubleValue;
+            y = table["y"].DoubleValue;
         }
 
         public Table ToTable()

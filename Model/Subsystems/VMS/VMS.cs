@@ -24,7 +24,7 @@ namespace RSSE
         public VMS(ShipTable table)
         {
             dimensions = new Vector2(table.shipCoords["VMS1"]["Dimensions"]);
-            normFOV = table.shipCoords["VMS1"]["normFOV"].Value;
+            normFOV = table.shipCoords["VMS1"]["normFOV"].DoubleValue;
         }
 
         override public void AddToTable(ShipTable table)

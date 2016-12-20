@@ -18,6 +18,17 @@ namespace RSSE
         private MeshCollection _meshList;
         public MeshCollection Model { get { return _meshList; } }
 
+        private OGLScene scene;
+        public OGLScene Scene
+        {
+            get { return scene; }
+            set
+            {
+                scene = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand AddMeshCommand { get; private set; }
         public ICommand RemoveMeshCommand { get; private set; }
 
@@ -25,6 +36,8 @@ namespace RSSE
         {
             RootLevel = new ObservableCollection<MeshViewModel>();
             MeshList = new ObservableCollection<MeshViewModel>();
+
+            Scene = new OGLScene();
 
             AddMeshCommand = new DelegateCommand(AddMesh);
             RemoveMeshCommand = new DelegateCommand<MeshViewModel>(RemoveMesh);
@@ -62,6 +75,9 @@ namespace RSSE
                     }
                 }
             }
+
+            // Create Scene
+            Scene = new OGLScene(_meshList.meshes);
         }
         
         private void Mesh_PropertyChanged(object sender, PropertyChangedEventArgs e)

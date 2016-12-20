@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenTK;
 
 namespace RSSE
 {
     public class ShipViewModel : ObservableObject
     {
         public Ship _ship;
-
+        
         public SubsystemsManagerViewModel Subsystems { get; set; }
         public MeshTreeViewModel InteriorMeshes { get; set; }
         public MeshTreeViewModel ExteriorMeshes { get; set; }
-
+        
         #region Properties
         public string Name
         {
@@ -271,12 +272,15 @@ namespace RSSE
         }
         #endregion
 
+        public string Title { get { return UIName + " Hull edit"; } }
+
         public ShipViewModel()
         {
             _ship = new Ship();
             Subsystems = new SubsystemsManagerViewModel();
             ExteriorMeshes = new MeshTreeViewModel();
             InteriorMeshes = new MeshTreeViewModel();
+            
         }
 
         public ShipViewModel(Ship ship)
@@ -285,8 +289,7 @@ namespace RSSE
             Subsystems = new SubsystemsManagerViewModel(ship.subsystemsManager);
             ExteriorMeshes = new MeshTreeViewModel(ship.exteriorMeshes);
             InteriorMeshes = new MeshTreeViewModel(ship.interiorMeshes);
-
         }
-
+        
     }
 }

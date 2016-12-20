@@ -60,6 +60,14 @@
       <HintPath>packages\NLua.1.3.2.1\lib\net45\NLua.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpenTK, Version=1.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.Next.1.2.2336.6514-pre\lib\net20\OpenTK.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.2.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>packages\OpenTK.Next.GLControl.1.2.2336.6514-pre\lib\net20\OpenTK.GLControl.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -76,20 +84,35 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WPFFolderBrowser, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\WPFFolderBrowser.1.0.2\lib\WPFFolderBrowser.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Application\Appli.cs" />
+    <Compile Include="Application\Settings.cs" />
+    <Compile Include="Application\StartupSettingsWindows.xaml.cs">
+      <DependentUpon>StartupSettingsWindows.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Behaviors\DragAndDropLibrary\DragSource.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\DragSourceBehaviour.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\DropTarget.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\DropTargetBehaviour.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\IDragSource.cs" />
     <Compile Include="Behaviors\DragAndDropLibrary\IDropTarget.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Utils\PersistableObject.cs" />
     <Compile Include="View\GeneralShipView.xaml.cs">
       <DependentUpon>GeneralShipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HullEditView.xaml.cs">
+      <DependentUpon>HullEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Meshs\MeshSurfacesDataView.xaml.cs">
       <DependentUpon>MeshSurfacesDataView.xaml</DependentUpon>
@@ -324,7 +347,15 @@
     <Compile Include="Utils\Table.cs" />
     <Compile Include="Utils\Vector2.cs" />
     <Compile Include="Utils\Vector3.cs" />
+    <Page Include="Application\StartupSettingsWindows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\GeneralShipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HullEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -496,7 +527,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window\MainWindow.xaml">
+    <Page Include="Visualisator\OGLSceneView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Application\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -504,7 +539,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Window\MainWindow.xaml.cs">
+    <Compile Include="Visualisator\OGLibo.cs" />
+    <Compile Include="Visualisator\OGLMdlReader.cs" />
+    <Compile Include="Visualisator\OGLMesh.cs" />
+    <Compile Include="Visualisator\OGLSceneView.xaml.cs">
+      <DependentUpon>OGLSceneView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visualisator\OGLScene.cs" />
+    <Compile Include="Visualisator\OGLShader.cs" />
+    <Compile Include="Visualisator\OGLShaderProgram.cs" />
+    <Compile Include="Visualisator\OGLTexture.cs" />
+    <Compile Include="Visualisator\OGLvao.cs" />
+    <Compile Include="Visualisator\OGLvbo.cs" />
+    <Compile Include="Visualisator\VertexAttribute.cs" />
+    <Compile Include="Visualisator\VertexUV.cs" />
+    <Compile Include="Application\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -531,6 +580,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -552,6 +602,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VertexShader1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FragmentShader1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -6,7 +6,7 @@
         x:Class="RSSE.MainWindow"
         mc:Ignorable="d"
         x:Name="RSSE_MainWindow"
-        Title="RSSE : The Rogue System Ship Editor" Height="900" Width="1100">
+        Title="RSSE : The Rogue System Ship Editor" Height="768" Width="1366">
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_File">
@@ -17,20 +17,6 @@
                 <MenuItem Header="_Exit" />
             </MenuItem>
         </Menu>
-        <TabControl DockPanel.Dock="Top">
-            <TabItem Header="General">
-                <local:GeneralShipView DataContext="{Binding}"/>
-            </TabItem>
-            <TabItem Header="Subsystems">
-                <local:SubsystemsManagerView DataContext="{Binding Subsystems}"/>
-            </TabItem>
-            <TabItem Header="Interior meshs">
-                <local:MeshTreeView DataContext="{Binding InteriorMeshes}"/>
-            </TabItem>
-            <TabItem Header="Exterior meshs">
-                <local:MeshTreeView DataContext="{Binding ExteriorMeshes}"/>
-            </TabItem>
-        </TabControl>
-        
+        <local:HullEditView DataContext="{Binding Path=CurrentViewModel}" />
     </DockPanel>
 </Window>

@@ -24,9 +24,9 @@ namespace RSSE
 
         public Color(Table table)
         {
-            r = table["r"].Value;
-            g = table["g"].Value;
-            b = table["b"].Value; 
+            r = table["r"].DoubleValue;
+            g = table["g"].DoubleValue;
+            b = table["b"].DoubleValue; 
         }
 
         public Table ToTable()
