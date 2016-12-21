@@ -36,6 +36,7 @@ namespace RSSE
         {
             RootLevel = new ObservableCollection<MeshViewModel>();
             MeshList = new ObservableCollection<MeshViewModel>();
+            
 
             Scene = new OGLScene();
 
@@ -48,6 +49,7 @@ namespace RSSE
             _meshList = meshList;
             MeshList = new ObservableCollection<MeshViewModel>();
             RootLevel = new ObservableCollection<MeshViewModel>();
+
 
             AddMeshCommand = new DelegateCommand(AddMesh);
             RemoveMeshCommand = new DelegateCommand<MeshViewModel>(RemoveMesh);
@@ -74,12 +76,20 @@ namespace RSSE
                         parent.Children.Add(mv);
                     }
                 }
+                mv.PropertyChanged += Mv_PropertyChanged;
             }
 
             // Create Scene
             Scene = new OGLScene(_meshList.meshes);
         }
-        
+
+        private void Mv_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // for now we just refresh
+            Scene.glControl.Invalidate();
+            // When texture or shader change, load it
+        }
+
         private void Mesh_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if(e.PropertyName=="Parent")

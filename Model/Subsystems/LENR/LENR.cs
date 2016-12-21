@@ -19,7 +19,7 @@ namespace RSSE
 
         public LENR() { }
 
-        public LENR(ShipTable table)
+        public LENR(ShipHullTable table)
         {
             mount_MAX       = table.ship["LENR"]["mount_MAX"].IntValue;
             total_ALLOWED   = table.ship["LENR"]["total_ALLOWED"].IntValue;
@@ -27,7 +27,7 @@ namespace RSSE
             sys1_quad       = table.ship["LENR"]["sys1_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["LENR"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["LENR"]["total_ALLOWED"].IntValue = total_ALLOWED;

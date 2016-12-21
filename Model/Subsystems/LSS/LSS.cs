@@ -31,7 +31,7 @@ namespace RSSE
             scrubbers = new List<Scrubber>();
         }
 
-        public LSS(ShipTable table)
+        public LSS(ShipHullTable table)
         {
             scrubbers = new List<Scrubber>();
             mount_MAX           = table.ship["LSS"]["mount_MAX"].IntValue;
@@ -52,7 +52,7 @@ namespace RSSE
             }
         }
 
-        override public void AddToTable( ShipTable table )
+        override public void AddToTable( ShipHullTable table )
         {
             table.ship["LSS"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["LSS"]["sys_EB"].IntValue = sys_EB;

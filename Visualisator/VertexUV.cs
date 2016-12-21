@@ -8,10 +8,10 @@ namespace RSSE
 {
     struct VertexUV
     {
-        private readonly Vector3 position;
-        private readonly Vector2 uv;
+        private readonly Vec3 position;
+        private readonly Vec2 uv;
 
-        public VertexUV(Vector3 position, Vector2 uv)
+        public VertexUV(Vec3 position, Vec2 uv)
         {
             this.position = position;
             this.uv = uv;

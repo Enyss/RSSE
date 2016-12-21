@@ -21,12 +21,12 @@
         <Label HorizontalAlignment="Center">Normal</Label>
         <Grid>
             <Label>Position :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding Position}"/>
         </Grid>
         <Grid>
             <Label>Vector :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding Vector}"/>
         </Grid>
         <Grid>
@@ -37,12 +37,12 @@
         <Label HorizontalAlignment="Center">Reverse</Label>
         <Grid>
             <Label>Position :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding Pos_REV}"/>
         </Grid>
         <Grid>
             <Label>Vector :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding Vctr_REV}"/>
         </Grid>
         <Grid>

@@ -10,8 +10,8 @@ namespace RSSE
     public class RCSThruster
     {
         public string name;
-        public Vector3 nozzlePOS;
-        public Vector3 directionVEC;
+        public Vec3 nozzlePOS;
+        public Vec3 directionVEC;
         public DoF dof;
         public string exhaustVFX;
         public double forceMULTI;
@@ -21,16 +21,16 @@ namespace RSSE
         public RCSThruster()
         {
             name = "default thruster";
-            nozzlePOS = new Vector3();
-            directionVEC = new Vector3();
+            nozzlePOS = new Vec3();
+            directionVEC = new Vec3();
             dof = new DoF();
         }
 
         public RCSThruster(Table table)
         {
             name = (table["Name"].Value == null)? "default thruster" : table["Name"].Value;
-            nozzlePOS = new Vector3(table["nozzlePOS"]);
-            directionVEC = new Vector3(table["directionVEC"]);
+            nozzlePOS = new Vec3(table["nozzlePOS"]);
+            directionVEC = new Vec3(table["directionVEC"]);
             dof = new DoF(table["motionTYPES"]);
             exhaustVFX = table["exhaustVFX"].Value;
             forceMULTI = table["forceMULTI"].Value;

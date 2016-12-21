@@ -18,7 +18,7 @@ namespace RSSE
         public int sys2_EB;
         public int sys2_quad;
 
-        public COMM(ShipTable table)
+        public COMM(ShipHullTable table)
         {
             mount_MAX   = table.ship["COMM"]["mount_MAX"].IntValue;
             sys1_EB     = table.ship["COMM"]["sys1_EB"].IntValue;
@@ -27,7 +27,7 @@ namespace RSSE
             sys2_quad   = table.ship["COMM"]["sys2_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["COMM"]["mount_MAX"].IntValue    = mount_MAX;
             table.ship["COMM"]["sys1_EB"].IntValue      = sys1_EB;

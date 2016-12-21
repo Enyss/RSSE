@@ -21,7 +21,7 @@ namespace RSSE
 
         public FCM() { }
 
-        public FCM(ShipTable table)
+        public FCM(ShipHullTable table)
         {
             mount_MAX       = table.ship["FCM"]["mount_MAX"].IntValue;
             total_ALLOWED   = table.ship["FCM"]["total_ALLOWED"].IntValue;
@@ -31,7 +31,7 @@ namespace RSSE
             sys2_quad       = table.ship["FCM"]["sys2_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["FCM"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["FCM"]["total_ALLOWED"].IntValue = total_ALLOWED;

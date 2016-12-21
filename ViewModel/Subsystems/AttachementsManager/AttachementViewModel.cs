@@ -36,7 +36,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _attachement.position; }
             set
@@ -45,7 +45,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Rotation
+        public Vec3 Rotation
         {
             get { return _attachement.rotation; }
             set

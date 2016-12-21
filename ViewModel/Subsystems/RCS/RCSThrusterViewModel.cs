@@ -25,7 +25,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 NozzlePOS
+        public Vec3 NozzlePOS
         {
             get { return _thruster.nozzlePOS; }
             set
@@ -34,7 +34,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 DirectionVEC
+        public Vec3 DirectionVEC
         {
             get { return _thruster.directionVEC; }
             set

@@ -24,7 +24,7 @@ namespace RSSE
 
         }
 
-        public BMS(ShipTable table)
+        public BMS(ShipHullTable table)
         {
             mount_MAX = table.ship["BMS"]["mount_MAX"].IntValue;
             total_ALLOWED = table.ship["BMS"]["total_ALLOWED"].IntValue;
@@ -34,7 +34,7 @@ namespace RSSE
             sys2_quad = table.ship["BMS"]["sys2_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["BMS"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["BMS"]["total_ALLOWED"].IntValue = total_ALLOWED;

@@ -25,7 +25,7 @@
             </Grid>
             <Grid>
                 <Label>Core position :</Label>
-                <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+                <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding MtsLocation}"/>
             </Grid>
             <Label HorizontalAlignment="Center" FontWeight="Bold">Controller</Label>

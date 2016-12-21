@@ -20,8 +20,8 @@ namespace RSSE
         public string sectionName;
 
         // Position
-        public Vector3 position;
-        public Vector3 rotation;
+        public Vec3 position;
+        public Vec3 rotation;
 
         public string parentName;
         public Mesh parent;
@@ -79,8 +79,8 @@ namespace RSSE
 
             //Position
             parentName = table["ParentTo"].StrValue;
-            position = new Vector3(table["Position"]);
-            rotation = new Vector3(table["Rotation"]);
+            position = new Vec3(table["Position"]);
+            rotation = new Vec3(table["Rotation"]);
             //Collision
 
 

@@ -37,7 +37,7 @@ namespace RSSE
 }
         }
 
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _scrubber.position; }
             set
@@ -47,7 +47,7 @@ namespace RSSE
             }
         }
 
-        public Vector3 Rotation
+        public Vec3 Rotation
         {
             get { return _scrubber.rotation; }
             set

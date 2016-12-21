@@ -14,8 +14,8 @@ namespace RSSE
         public string name_UI;
         public int id;
         public string parentTo;
-        public Vector3 position;
-        public Vector3 rotation;
+        public Vec3 position;
+        public Vec3 rotation;
 
         public Camera()
         {
@@ -23,8 +23,8 @@ namespace RSSE
             name_UI = "";
             id = 0;
             parentTo = "NONE";
-            position = new Vector3();
-            rotation = new Vector3();
+            position = new Vec3();
+            rotation = new Vec3();
         }
 
         public Camera(Table table)
@@ -33,8 +33,8 @@ namespace RSSE
             name_UI = table["name_UI"].StrValue;
             id = table["ID"].IntValue;
             parentTo = (table["ParentTo"].Value == null)? "NONE" : table["ParentTo"].Value;
-            position = new Vector3(table["Position"]);
-            rotation = new Vector3(table["Rotation"]);
+            position = new Vec3(table["Position"]);
+            rotation = new Vec3(table["Rotation"]);
         }
 
         public Table ToTable()

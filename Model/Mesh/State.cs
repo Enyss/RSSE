@@ -21,9 +21,9 @@ namespace RSSE
 
         public string name;
         public StateMotionTypeEnum motionType;
-        public Vector3 position;
-        public Vector3 rotation;
-        public Vector3 scale;
+        public Vec3 position;
+        public Vec3 rotation;
+        public Vec3 scale;
         public int startPause;
         public int rate;
         public bool visible;
@@ -35,9 +35,9 @@ namespace RSSE
         public State()
         {
             name = "default";
-            position = new Vector3();
-            rotation = new Vector3();
-            scale = new Vector3();
+            position = new Vec3();
+            rotation = new Vec3();
+            scale = new Vec3();
         }
         
         public State(int id, Table table)
@@ -51,9 +51,9 @@ namespace RSSE
                 name = table["name"].Value;
             }
             motionType = bictionnary[table["MotionType"].Value];
-            position = new Vector3(table["Position"]);
-            rotation = new Vector3(table["Rotation"]);
-            scale = new Vector3(table["Scale"]);
+            position = new Vec3(table["Position"]);
+            rotation = new Vec3(table["Rotation"]);
+            scale = new Vec3(table["Scale"]);
             startPause = table["StartPause"].IntValue;
             rate = table["Rate"].IntValue;
             visible = table["Visible"].Value > 0.5;

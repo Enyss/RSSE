@@ -17,21 +17,21 @@ namespace RSSE
         public MTSController controller;
 
         public int mount_MAX;
-        public Vector3 mtsLocation;
+        public Vec3 mtsLocation;
         public double nozzle_SIZE;
 
         public MTS()
         {
-            mtsLocation = new Vector3();
+            mtsLocation = new Vec3();
             controller = new MTSController();
             boosters = new List<MTSBooster>();
         }
 
-        public MTS(ShipTable table)
+        public MTS(ShipHullTable table)
         {
             mount_MAX = table.ship["MTS"]["mount_MAX"].IntValue;
             nozzle_SIZE = table.ship["MTS"]["nozzle_SIZE"].Value;
-            mtsLocation = new Vector3(table.shipCoords["MTSlocation"]);
+            mtsLocation = new Vec3(table.shipCoords["MTSlocation"]);
 
             controller = new MTSController(table.ship["MTS"]["Controller1_LOC"]);
 
@@ -44,7 +44,7 @@ namespace RSSE
             }
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["MTS"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["MTS"]["nozzle_SIZE"].Value = nozzle_SIZE;

@@ -18,14 +18,14 @@ namespace RSSE
 
         public RCM() { }
 
-        public RCM(ShipTable table)
+        public RCM(ShipHullTable table)
         {
             mount_MAX   = table.ship["RCM"]["mount_MAX"].IntValue;
             sys_EB      = table.ship["RCM"]["sys_EB"].IntValue;
             sys_quad    = table.ship["RCM"]["sys_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["RCM"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["RCM"]["sys_EB"].IntValue = sys_EB;

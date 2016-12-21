@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace RSSE
 {
-    public class Vector2
+    public class Vec2
     {
         public double x { get; set; }
         public double y { get; set; }
 
-        public Vector2() { }
+        public Vec2() { }
 
-        public Vector2( double x, double y)
+        public Vec2( double x, double y)
         {
             this.x = x;
             this.y = y;
         }
 
-        public Vector2(Table table)
+        public Vec2(Table table)
         {
             x = table["x"].DoubleValue;
             y = table["y"].DoubleValue;

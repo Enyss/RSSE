@@ -26,8 +26,8 @@
                      SelectedItem="{Binding Path=CollisionShape}"/>
             </Grid>
             <Grid Visibility="{Binding Path=HasShapeSize, Converter={StaticResource BoolToVisibility}}">
-                <Label>Dimensions</Label>
-                <local:Vector3View DataContext="{Binding Path=CollShapeSize}"/>
+                <Label>Size</Label>
+                <local:Vec3View Vector="{Binding Path=CollShapeSize}"/>
             </Grid>
             <Grid Visibility="{Binding Path=IsSphere, Converter={StaticResource BoolToVisibility}}">
                 <Label>Radius</Label>

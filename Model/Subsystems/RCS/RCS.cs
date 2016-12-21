@@ -19,7 +19,7 @@ namespace RSSE
             thrusters = new List<RCSThruster>();
         }
 
-        public RCS( ShipTable table )
+        public RCS( ShipHullTable table )
         {
             thrusters = new List<RCSThruster>();
             int i = 1;
@@ -30,7 +30,7 @@ namespace RSSE
             }
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             int i = 1;
             foreach (RCSThruster thruster in thrusters)

@@ -30,29 +30,19 @@ namespace RSSE
 
         public MainWindow()
         {
-            appli = Appli.Instance;
-            DataContext = appli;
-
             InitializeComponent();
 
+            appli = Appli.Instance;
+            DataContext = appli;
+            appli.Init();
 
-            appli.LoadSettings("settings.xml");
-            if ( appli.Settings.RogueSysemFileRoot == null )
-            {
-                StartupSettingsWindows setBaseFolder = new StartupSettingsWindows();
-                setBaseFolder.ShowDialog();
-                appli.SaveSettings("settings.xml");
-            }
-
-
-            FileNew_Click(null, null);
         }
 
         private void FileNew_Click(object sender, RoutedEventArgs e)
         {
-            Ship ship = new Ship();
+            ShipHull ship = new ShipHull();
             appli.ShipName = ship.name;
-            appli.CurrentViewModel = new ShipViewModel(ship);
+            appli.CurrentViewModel = new ShipHullViewModel(ship);
         }
 
         private void FileOpen_Click(object sender, RoutedEventArgs e)
@@ -61,16 +51,7 @@ namespace RSSE
             openFileDialog.Filter = "ROG file (*.ROG)|*.ROG|Lua file (*.lua)|*.lua";
             if (openFileDialog.ShowDialog() == true)
             {
-                string content = File.ReadAllText(openFileDialog.FileName);
-
-                //get the basename : no better solution? 
-                string[] s = openFileDialog.FileName.Split('.', '\\', '/');
-                string name = s[s.Count() - 2];
-
-                ShipTable table = new ShipTable(name, content);
-                Ship ship = new Ship(table);
-                appli.ShipName = ship.name;
-                appli.CurrentViewModel = new ShipViewModel(ship);
+                
             }
         }
 

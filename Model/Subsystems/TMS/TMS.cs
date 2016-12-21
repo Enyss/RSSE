@@ -29,7 +29,7 @@ namespace RSSE
 
         public TMS() { }
 
-        public TMS(ShipTable table)
+        public TMS(ShipHullTable table)
         {
             mount_MAX = table.ship["TMS"]["mount_MAX"].IntValue;
             sys_EB = table.ship["TMS"]["sys_EB"].IntValue;
@@ -47,7 +47,7 @@ namespace RSSE
             coolLinelength = table.ship["TMS"]["COOLlinelength"].Value;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
 
             table.ship["TMS"]["mount_MAX"].IntValue = mount_MAX;

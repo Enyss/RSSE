@@ -15,7 +15,7 @@
         </Grid>
         <Grid>
             <Label>Position :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
+            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
                                DataContext="{Binding Position}"/>
         </Grid>
     </StackPanel>

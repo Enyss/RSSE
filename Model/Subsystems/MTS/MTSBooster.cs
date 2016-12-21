@@ -10,31 +10,31 @@ namespace RSSE
     public class MTSBooster
     {
         public string name;
-        public Vector3 position;
-        public Vector3 vector;
+        public Vec3 position;
+        public Vec3 vector;
         public string vfx;
-        public Vector3 pos_REV;
-        public Vector3 vctr_REV;
+        public Vec3 pos_REV;
+        public Vec3 vctr_REV;
         public string vfx_REV;
         public int quad;
 
         public MTSBooster()
         {
             name = "default";
-            position = new Vector3();
-            vector = new Vector3();
-            pos_REV = new Vector3();
-            vctr_REV = new Vector3();
+            position = new Vec3();
+            vector = new Vec3();
+            pos_REV = new Vec3();
+            vctr_REV = new Vec3();
         }
 
         public MTSBooster(Table table)
         {
             name = (table["name"].Value == null)? "default" : table["name"].Value;
-            position = new Vector3(table["position"]);
-            vector = new Vector3(table["vector"]);
+            position = new Vec3(table["position"]);
+            vector = new Vec3(table["vector"]);
             vfx = table["vfx"].Value;
-            pos_REV = new Vector3(table["pos_REV"]);
-            vctr_REV = new Vector3(table["vctr_REV"]);
+            pos_REV = new Vec3(table["pos_REV"]);
+            vctr_REV = new Vec3(table["vctr_REV"]);
             vfx_REV = table["vfx_REV"].Value;
             quad = table["quad"].IntValue;
         }

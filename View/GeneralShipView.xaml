@@ -7,109 +7,105 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="600">
     <DockPanel>
-    <StackPanel Width="300">
-        <Label HorizontalAlignment="Center" FontWeight="Bold">General</Label>
-        <Grid>
-            <Label>Name</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+        <StackPanel Width="300">
+            <Label HorizontalAlignment="Center" FontWeight="Bold">General</Label>
+            <Grid>
+                <Label>Name</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=Name}"/>
-        </Grid>
-        <Grid>
-            <Label>UI Name</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>UI Name</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=UIName}"/>
-        </Grid>
-        <Grid>
-            <Label>Description</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center" 
+            </Grid>
+            <Grid>
+                <Label>Description</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center" 
                      TextWrapping="Wrap" AcceptsReturn="True" 
                      Text="{Binding Path=Description}"/>
-        </Grid>
-        <Grid>
-            <Label>Ship class</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Ship class</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=ShipClass}"/>
-        </Grid>
-        <Label HorizontalAlignment="Center" FontWeight="Bold">Physical characteristics</Label>
-        <Grid>
-            <Label>Ship size class</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Physical characteristics</Label>
+            <Grid>
+                <Label>Ship size class</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=SizeClass}"/>
-        </Grid>
-        <Grid>
-            <Label>Mass</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Mass</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=Mass}"/>
-        </Grid>
-        <Grid>
-            <Label>Basic dimensions</Label>
-            <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
-                     DataContext="{Binding Path=BasicDimensions}"/>
-        </Grid>
-        <Grid>
-            <Label>Mean drag</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Label>Basic dimensions :</Label>
+            <local:Vec3View Vector="{Binding Path=BasicDimensions}"/>
+            <Grid>
+                <Label>Mean drag</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=MeanDRAGcoef}"/>
-        </Grid>
-        <Grid>
-            <Label>Hull reflectivity</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Hull reflectivity</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=Hull_REFLECTIVITY}"/>
-        </Grid>
-        <Grid>
-            <Label>Interior volume</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Interior volume</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=VolumeInterior}"/>
-        </Grid>
-        <Grid>
-            <Label>Cabin insulation %</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Cabin insulation %</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=CabinInsPercentage}"/>
-        </Grid>
-        <Grid>
-            <Label>Cargo volume</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Cargo volume</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=CargoVolume}"/>
-        </Grid>
-        <Label HorizontalAlignment="Center" FontWeight="Bold">Onboard system characteristics</Label>
-        <Grid>
-            <Label>System init time:</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Onboard system characteristics</Label>
+            <Grid>
+                <Label>System init time:</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=SysInitTime}"/>
-        </Grid>
-        <Grid>
-            <Label>Power required</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Power required</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=PwrRequired}"/>
-        </Grid>
-        <Grid>
-            <Label>Power startup req.</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Power startup req.</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=PwrStart}"/>
-        </Grid>
-        <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
-        <Grid>
-            <Label>Price</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
+            <Grid>
+                <Label>Price</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=MSRPPrice}"/>
-        </Grid>
-        <Grid>
-            <Label>Expected life</Label>
-            <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
+            </Grid>
+            <Grid>
+                <Label>Expected life</Label>
+                <TextBox Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding Path=ExpectedLife}"/>
-        </Grid>
-        
-    </StackPanel>
-    <StackPanel Width="300">
-        <Label HorizontalAlignment="Center" FontWeight="Bold">Configuration</Label>
+            </Grid>
+
+        </StackPanel>
+        <StackPanel Width="300">
+            <Label HorizontalAlignment="Center" FontWeight="Bold">Configuration</Label>
             <CheckBox IsChecked="{Binding Path=InteriorAvailable}" VerticalAlignment="Center" Margin="80,5">Interior available</CheckBox>
             <CheckBox IsChecked="{Binding Path=AsCockpit}" VerticalAlignment="Center" Margin="80,5">As cockpit</CheckBox>
             <CheckBox IsChecked="{Binding Path=LandingSkids}" VerticalAlignment="Center" Margin="80,5">Landing Skids</CheckBox>
-            <Grid>
-                <Label>Basic dimensions</Label>
-                <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
-                     DataContext="{Binding Path=BasicDimensions}"/>
-            </Grid>
+            
+                <Label>Basic dimensions :</Label>
+                <local:Vec3View Vector="{Binding Path=BasicDimensions}"/>
+            
             <Grid>
                 <Label>Emergency light</Label>
                 <local:ColorView Margin="120,0,0,0" VerticalAlignment="Center"

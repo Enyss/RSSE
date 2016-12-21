@@ -7,9 +7,9 @@ using OpenTK;
 
 namespace RSSE
 {
-    public class ShipViewModel : ObservableObject
+    public class ShipHullViewModel : ObservableObject, IMainViewModel
     {
-        public Ship _ship;
+        public ShipHull _ship;
         
         public SubsystemsManagerViewModel Subsystems { get; set; }
         public MeshTreeViewModel InteriorMeshes { get; set; }
@@ -133,7 +133,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 BasicDimensions
+        public Vec3 BasicDimensions
         {
             get { return _ship.basicDimensions; }
             set
@@ -189,7 +189,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 PlayerSTART
+        public Vec3 PlayerSTART
         {
             get { return _ship.playerSTART; }
             set
@@ -274,16 +274,16 @@ namespace RSSE
 
         public string Title { get { return UIName + " Hull edit"; } }
 
-        public ShipViewModel()
+        public ShipHullViewModel()
         {
-            _ship = new Ship();
+            _ship = new ShipHull();
             Subsystems = new SubsystemsManagerViewModel();
             ExteriorMeshes = new MeshTreeViewModel();
             InteriorMeshes = new MeshTreeViewModel();
             
         }
 
-        public ShipViewModel(Ship ship)
+        public ShipHullViewModel(ShipHull ship)
         {
             _ship = ship;
             Subsystems = new SubsystemsManagerViewModel(ship.subsystemsManager);

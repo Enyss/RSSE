@@ -19,7 +19,7 @@ namespace RSSE
             cameras = new List<Camera>();
         }
 
-        public CameraManager(ShipTable table)
+        public CameraManager(ShipHullTable table)
         {
             cameras = new List<Camera>();
             int i = 1;
@@ -30,7 +30,7 @@ namespace RSSE
             }
         }
 
-        public override void AddToTable(ShipTable table)
+        public override void AddToTable(ShipHullTable table)
         {
             table.shipCameras["Total"].Value = cameras.Count;
             for (int i = 0; i < cameras.Count; i++)

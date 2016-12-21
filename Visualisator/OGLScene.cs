@@ -19,7 +19,7 @@ namespace RSSE
         Dictionary<string, OGLTexture> textures;
         Dictionary<string, OGLShaderProgram> shaderPrograms;
 
-        Vector2 mousePos;
+        Vec2 mousePos;
         OpenTK.Vector3 ViewDirection;
         OpenTK.Vector3 top;
         OpenTK.Vector3 eye;
@@ -27,14 +27,14 @@ namespace RSSE
         public OGLScene()
         {
             glControl = new GLControl();
-            mousePos = new Vector2();
+            mousePos = new Vec2();
         }
 
         public OGLScene(List<Mesh> mesh)
         {
 
-            mousePos = new Vector2();
-            glControl = new GLControl();
+            mousePos = new Vec2();
+            glControl = new GLControl( new GraphicsMode(32, 24, 0, 8));
             glControl.MakeCurrent();
             glControl.Paint += Paint;
             glControl.MouseMove += GlControl_MouseMove;
@@ -45,7 +45,7 @@ namespace RSSE
             shaderPrograms = new Dictionary<string, OGLShaderProgram>();
 
 
-            Init(1280, 720);
+            Init(800, 600);
             LoadShaders();
             LoadTextures(mesh);
             LoadMesh(mesh);
@@ -68,7 +68,7 @@ namespace RSSE
             top = new OpenTK.Vector3(0, 1, 0);
             VMatrix = Matrix4.LookAt(ViewDirection, OpenTK.Vector3.Add(eye,ViewDirection) , top); 
             PMatrix = Matrix4.CreateScale(-1,1,1)*Matrix4.CreatePerspectiveFieldOfView(
-                MathHelper.PiOver2, 16f / 9, 0.1f, 500f);
+                MathHelper.PiOver2, (float)width / height, 0.1f, 500f);
 
         }
 

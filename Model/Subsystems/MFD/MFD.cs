@@ -12,22 +12,22 @@ namespace RSSE
         override public SubsystemTypeEnum SystemType { get { return SubsystemTypeEnum.MFD; } }
         override public string SystemGroup { get { return "Command"; } }
 
-        public Vector3 upperLeft;
-        public Vector3 dimensions;
+        public Vec3 upperLeft;
+        public Vec3 dimensions;
 
         public MFD()
         {
-            upperLeft = new Vector3();
-            dimensions = new Vector3();
+            upperLeft = new Vec3();
+            dimensions = new Vec3();
         }
 
-        public MFD(ShipTable table)
+        public MFD(ShipHullTable table)
         {
-            upperLeft = new Vector3(table.shipCoords["MFD1"]["UpperLeft"]);
-            dimensions = new Vector3(table.shipCoords["MFD1"]["Dimensions"]);
+            upperLeft = new Vec3(table.shipCoords["MFD1"]["UpperLeft"]);
+            dimensions = new Vec3(table.shipCoords["MFD1"]["Dimensions"]);
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.shipCoords["MFD1"]["UpperLeft"] = upperLeft.ToTable();
             table.shipCoords["MFD1"]["Dimensions"] = dimensions.ToTable();

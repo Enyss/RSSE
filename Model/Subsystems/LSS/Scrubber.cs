@@ -10,22 +10,22 @@ namespace RSSE
     public class Scrubber
     {
         public bool is_SPARE;
-        public Vector3 position;
-        public Vector3 rotation;
+        public Vec3 position;
+        public Vec3 rotation;
         public int equipBay;
         public int quad;
 
         public Scrubber()
         {
-            position = new Vector3();
-            rotation = new Vector3();
+            position = new Vec3();
+            rotation = new Vec3();
         }
 
         public Scrubber(Table table)
         {
             is_SPARE = table["is_SPARE"].Value > 0.5;
-            position = new Vector3(table["position"]);
-            rotation = new Vector3(table["rotation"]);
+            position = new Vec3(table["position"]);
+            rotation = new Vec3(table["rotation"]);
             equipBay = table["EquipBay"].IntValue;
             quad = table["Quad"].IntValue;
         }

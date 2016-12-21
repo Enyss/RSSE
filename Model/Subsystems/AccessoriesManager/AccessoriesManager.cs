@@ -24,7 +24,7 @@ namespace RSSE
             Seats = new List<Seat>();
         }
 
-        public AccessoriesManager(ShipTable table)
+        public AccessoriesManager(ShipHullTable table)
         {
             Seats = new List<Seat>();
             Speakers = new List<Speaker>();
@@ -33,7 +33,7 @@ namespace RSSE
         }
 
         #region Loading
-        private void GetSeats(ShipTable table)
+        private void GetSeats(ShipHullTable table)
         {
             int i = 1;
             while (table.shipCoords["SEAT" + i].Count > 0)
@@ -43,7 +43,7 @@ namespace RSSE
             }
         }
 
-        private void GetSpeakers(ShipTable table)
+        private void GetSpeakers(ShipHullTable table)
         {
             int i = 1;
             while (table.shipCoords["iSPEAKERS"]["speaker" + i].Count > 0)
@@ -55,13 +55,13 @@ namespace RSSE
         #endregion
 
         #region Saving
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             AddSeats(table);
             AddSpeakers(table);
         }
 
-        private void AddSeats(ShipTable table)
+        private void AddSeats(ShipHullTable table)
         {
             table.ship["totalSEATS"].Value = Speakers.Count;
             int i = 1;
@@ -72,7 +72,7 @@ namespace RSSE
             }
         }
 
-        private void AddSpeakers(ShipTable table)
+        private void AddSpeakers(ShipHullTable table)
         {
             int i = 1;
             foreach (Speaker speaker in Speakers)

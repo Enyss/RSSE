@@ -59,7 +59,7 @@ namespace RSSE
         {
             get { return CollisionShape == MeshCollisionShapeEnum.Sphere; }
         }
-        public Vector3 CollShapeSize
+        public Vec3 CollShapeSize
         {
             get { return _collision.collShapeSize; }
             set

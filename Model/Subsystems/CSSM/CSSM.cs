@@ -18,7 +18,7 @@ namespace RSSE
         public int cargo_BAYS;
         public int cargo_RADSattached;
         
-        public CSSM(ShipTable table)
+        public CSSM(ShipHullTable table)
         {
             mount_MAX = table.ship["CSSM"]["mount_MAX"].IntValue;
             sys_EB = table.ship["CSSM"]["sys_EB"].IntValue;
@@ -27,7 +27,7 @@ namespace RSSE
             cargo_RADSattached = table.ship["CSSM"]["cargo_RADSattached"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["CSSM"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["CSSM"]["sys_EB"].IntValue = sys_EB;

@@ -13,21 +13,21 @@ namespace RSSE
         override public SubsystemTypeEnum SystemType { get { return SubsystemTypeEnum.VMS; } }
         override public string SystemGroup { get { return "Command"; } }
 
-        public Vector2 dimensions;
+        public Vec2 dimensions;
         public double normFOV;
 
         public VMS ()
         {
-            dimensions = new Vector2();
+            dimensions = new Vec2();
         }
 
-        public VMS(ShipTable table)
+        public VMS(ShipHullTable table)
         {
-            dimensions = new Vector2(table.shipCoords["VMS1"]["Dimensions"]);
+            dimensions = new Vec2(table.shipCoords["VMS1"]["Dimensions"]);
             normFOV = table.shipCoords["VMS1"]["normFOV"].DoubleValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.shipCoords["VMS1"]["Dimensions"] = dimensions.ToTable();
             table.shipCoords["VMS1"]["normFOV"].Value = normFOV;

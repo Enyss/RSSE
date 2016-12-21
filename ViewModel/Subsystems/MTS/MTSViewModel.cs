@@ -38,7 +38,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 MtsLocation
+        public Vec3 MtsLocation
         {
             get { return _mts.mtsLocation; }
             set

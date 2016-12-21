@@ -10,7 +10,7 @@ namespace RSSE
     {
         public int type { get; set; }
         public int shadowType { get; set; }
-        public Vector3 vector; //What parameter is it?
+        public Vec3 vector; //What parameter is it?
         public Color color;
 
         public MeshLightData()
@@ -24,7 +24,7 @@ namespace RSSE
             int x = table["LightData"]["x"].Value;
             int y = table["LightData"]["y"].Value;
             int z = table["LightData"]["z"].Value;
-            vector = new Vector3(x, y, z);
+            vector = new Vec3(x, y, z);
         }
 
         public void AddToTable(Table table)

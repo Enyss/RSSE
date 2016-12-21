@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RSSE
 {
     /// <summary>
-    /// Logique d'interaction pour Vector3View.xaml
+    /// Logique d'interaction pour MenuView.xaml
     /// </summary>
-    public partial class Vector3View : UserControl
+    public partial class MenuView : UserControl
     {
-        public Vector3View()
+        public MenuView()
         {
             InitializeComponent();
         }

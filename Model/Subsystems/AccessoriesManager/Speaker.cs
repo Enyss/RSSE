@@ -10,19 +10,19 @@ namespace RSSE
     public class Speaker
     {
         public string Name;
-        public Vector3 Position;
+        public Vec3 Position;
 
         public Speaker()
         {
             Name = "default";
-            Position = new Vector3();
+            Position = new Vec3();
         }
 
         public Speaker(Table table)
         {
             Name = table["Name"].StrValue;
             Name = (Name == "") ? "default" : Name;
-            Position = new Vector3(table);
+            Position = new Vec3(table);
         }
 
         public Table ToTable()
