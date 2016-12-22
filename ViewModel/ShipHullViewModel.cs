@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK;
+using System.IO;
 
 namespace RSSE
 {
@@ -289,6 +290,13 @@ namespace RSSE
             Subsystems = new SubsystemsManagerViewModel(ship.subsystemsManager);
             ExteriorMeshes = new MeshTreeViewModel(ship.exteriorMeshes);
             InteriorMeshes = new MeshTreeViewModel(ship.interiorMeshes);
+        }
+
+        public void Save()
+        {
+            ShipHullTable table = _ship.ToShipTable();
+            string path = Appli.Instance.Settings.RogueSysemFileRoot + "/Mod/RogSysCM/Ships/";
+            File.WriteAllText( path+_ship.name+".ROG", table.ToString() );
         }
         
     }

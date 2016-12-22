@@ -41,11 +41,13 @@ namespace RSSE
 
         public ICommand ViewShipHullCommand { get; set; }
         public ICommand ViewMenuCommand { get; set; }
+        public ICommand SaveCommand { get; set; }
 
         private Appli()
         {
             ViewShipHullCommand = new DelegateCommand<string>(ViewShipHull);
             ViewMenuCommand = new DelegateCommand(ViewMenu);
+            SaveCommand = new DelegateCommand(Save);
         }
 
         public void Init()
@@ -105,6 +107,11 @@ namespace RSSE
             {
                 MessageBox.Show("Cannot found the ship file !");
             }
+        }
+
+        private void Save()
+        {
+            CurrentViewModel.Save();
         }
 
         #endregion

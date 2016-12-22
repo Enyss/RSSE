@@ -9,5 +9,7 @@ namespace RSSE
     interface IMainViewModel
     {
         string Title { get; }
+
+        void Save();
     }
 }
