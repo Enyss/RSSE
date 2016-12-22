@@ -269,8 +269,8 @@
     <Compile Include="View\Subsystems\VMS\VMSView.xaml.cs">
       <DependentUpon>VMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\TMS\RMSView.xaml.cs">
-      <DependentUpon>RMSView.xaml</DependentUpon>
+    <Compile Include="View\Subsystems\TMS\TMSView.xaml.cs">
+      <DependentUpon>TMSView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Subsystems\RMS\RMSView.xaml.cs">
       <DependentUpon>RMSView.xaml</DependentUpon>
@@ -442,7 +442,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\TMS\RMSView.xaml">
+    <Page Include="View\Subsystems\TMS\TMSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

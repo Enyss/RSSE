@@ -16,24 +16,24 @@
         <Label HorizontalAlignment="Center">Safe area</Label>
         <Grid>
             <Label>Point 1 :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding safeLIMIT.PointA}"/>
+            <local:Vec3View HorizontalAlignment="Right" 
+                               Vector="{Binding safeLIMIT.PointA}"/>
         </Grid>
         <Grid>
             <Label>Point 2 :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding safeLIMIT.PointB}"/>
+            <local:Vec3View HorizontalAlignment="Right" 
+                               Vector="{Binding safeLIMIT.PointB}"/>
         </Grid>
         <Label HorizontalAlignment="Center">Unsafe area</Label>
         <Grid>
             <Label>Point 1 :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding unsafeLIMIT.PointA}"/>
+            <local:Vec3View HorizontalAlignment="Right" 
+                               Vector="{Binding unsafeLIMIT.PointA}"/>
         </Grid>
         <Grid>
             <Label>Point 2 :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding unsafeLIMIT.PointB}"/>
+            <local:Vec3View HorizontalAlignment="Right" 
+                               Vector="{Binding unsafeLIMIT.PointB}"/>
         </Grid>
     </StackPanel>
 </UserControl>

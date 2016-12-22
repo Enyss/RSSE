@@ -10,7 +10,7 @@
              d:DataContext="{d:DesignInstance Type=mv:MTSViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="1000" d:DesignWidth="300">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">MES</Label>
             <Label HorizontalAlignment="Center" FontWeight="Bold">General</Label>
             <Grid>
@@ -23,13 +23,11 @@
                 <TextBox HorizontalAlignment="Left" Margin="100,0,0,0" Width="150" VerticalAlignment="Center" 
                      Text="{Binding Nozzle_SIZE}"/>
             </Grid>
-            <Grid>
-                <Label>Core position :</Label>
-                <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding MtsLocation}"/>
-            </Grid>
+            <Label>Core position :</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding MtsLocation}"/>
             <Label HorizontalAlignment="Center" FontWeight="Bold">Controller</Label>
-                <local:MTSControllerView  DataContext="{Binding Controller}"/>
+            <local:MTSControllerView  DataContext="{Binding Controller}"/>
             <Label HorizontalAlignment="Center" FontWeight="Bold">Engines</Label>
             <local:SelectBoxControl x:Name="MTSBoosterSelector" Height="100"
                 Label=""

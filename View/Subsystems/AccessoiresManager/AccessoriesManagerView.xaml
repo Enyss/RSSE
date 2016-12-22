@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="600">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">Seats</Label>
             <local:SelectBoxControl x:Name="SeatSelector" Height="100"
                 Label=""
@@ -19,7 +19,7 @@
             <local:SeatView DataContext="{Binding ElementName=SeatSelector, Path=SelectedItem}"/>
         </StackPanel>
         <Border BorderThickness="1,1,0,0" BorderBrush="Gray"/>
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">Speakers</Label>
             <local:SelectBoxControl x:Name="SpeakerSelector" Height="100"
                 Label=""

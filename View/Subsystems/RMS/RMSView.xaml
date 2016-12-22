@@ -9,8 +9,8 @@
              d:DataContext="{d:DesignInstance Type=vm:BMSViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
-            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">BMS</Label>
+        <StackPanel Width="300" HorizontalAlignment="Left">
+            <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">RMS</Label>
             
             <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
             <Grid>

@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1100">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">RCS</Label>
             <Label HorizontalAlignment="Center"  FontWeight="Bold">Thrusters</Label>
             <local:SelectBoxControl x:Name="ThrusterSelector" Height="150"

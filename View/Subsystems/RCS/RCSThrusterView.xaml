@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:RSSE"
              
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="250">
+             d:DesignHeight="600" d:DesignWidth="300">
     <StackPanel>
         <Grid>
             <Label>Name :</Label>
@@ -30,14 +30,14 @@
         </Grid>
         <Label HorizontalAlignment="Center">Location</Label>
         <Grid>
-            <Label>Position :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding NozzlePOS}"/>
+            <Label>Position</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding NozzlePOS}"/>
         </Grid>
         <Grid>
-            <Label>Vector :</Label>
-            <local:Vec3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding DirectionVEC}"/>
+            <Label>Vector</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding DirectionVEC}"/>
         </Grid>
         <Label HorizontalAlignment="Center">Degree of Freedom</Label>
         <local:DoFView DataContext="{Binding Dof}"/>
