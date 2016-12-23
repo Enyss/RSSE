@@ -11,6 +11,6 @@ namespace RSSE.Interface
     interface ISpeakerViewModel : IViewModel<Speaker>
     {
         string Name { get; set; }
-        Vector3 Position { get; set; }
+        Vec3 Position { get; set; }
     }
 }

@@ -85,7 +85,11 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <ContentControl Content="{Binding SelectedItem}"
+        <ScrollViewer>
+            <StackPanel HorizontalAlignment="Left">
+                <ContentControl Content="{Binding SelectedItem}"
                         ContentTemplateSelector="{StaticResource myContentTemplateSelector}"/>
+            </StackPanel>
+        </ScrollViewer>
     </DockPanel>
 </UserControl>

@@ -19,29 +19,29 @@ namespace RSSE
         public int mustCROUCH = 1;
         public int mustSTAND = 0;
         public int isZeroG = 0;
-        public Vector3 location = new Vector3(0.0, 11.02, 0.127);
+        public Vec3 location = new Vec3(0.0, 11.02, 0.127);
         public double radius = 1.7;
         // end in ["Region1"]
 
-        public Vector3 LandAlignmentPos = new Vector3(0.0, 0.948, -3.306);
+        public Vec3 LandAlignmentPos = new Vec3(0.0, 0.948, -3.306);
 
         public int PriWepExtObjects = 0;
-        public Vector3 PriWep1ObjPos = new Vector3(-4.784, 0.0, 0.0);
-        public Vector3 PriWep1ObjRot = new Vector3(0.0, -90.0, 0.0);
-        public Vector3 PriWep2ObjPos = new Vector3(4.784, 0.0,  0.0);
-        public Vector3 PriWep2ObjRot = new Vector3(0.0, 90.0, 0.0);
-        public Vector3 SecWep1ObjPos = new Vector3(-1.18, 0.499, -0.116);
-        public Vector3 SecWep1ObjRot = new Vector3(0.0, 0.0, 0.0 );
-        public Vector3 SecWep2ObjPos = new Vector3(1.18, 0.499, -0.116);
-        public Vector3 SecWep2ObjRot = new Vector3(0.0, 0.0, 0.0 );
-        public Vector3 SecWep3ObjPos = new Vector3(-0.818, -0.592, -0.182);
-        public Vector3 SecWep3ObjRot = new Vector3(0.0, 0.0, 0.0 );
-        public Vector3 SecWep4ObjPos = new Vector3(0.818, -0.592, -0.182);
-        public Vector3 SecWep4ObjRot = new Vector3(0.0, 0.0, 0.0 );
-        public Vector3 TerWep1Pos = new Vector3(-2, 0, 1);
-        public Vector3 TerWep2Pos = new Vector3(2, 0, 1);
+        public Vec3 PriWep1ObjPos = new Vec3(-4.784, 0.0, 0.0);
+        public Vec3 PriWep1ObjRot = new Vec3(0.0, -90.0, 0.0);
+        public Vec3 PriWep2ObjPos = new Vec3(4.784, 0.0,  0.0);
+        public Vec3 PriWep2ObjRot = new Vec3(0.0, 90.0, 0.0);
+        public Vec3 SecWep1ObjPos = new Vec3(-1.18, 0.499, -0.116);
+        public Vec3 SecWep1ObjRot = new Vec3(0.0, 0.0, 0.0 );
+        public Vec3 SecWep2ObjPos = new Vec3(1.18, 0.499, -0.116);
+        public Vec3 SecWep2ObjRot = new Vec3(0.0, 0.0, 0.0 );
+        public Vec3 SecWep3ObjPos = new Vec3(-0.818, -0.592, -0.182);
+        public Vec3 SecWep3ObjRot = new Vec3(0.0, 0.0, 0.0 );
+        public Vec3 SecWep4ObjPos = new Vec3(0.818, -0.592, -0.182);
+        public Vec3 SecWep4ObjRot = new Vec3(0.0, 0.0, 0.0 );
+        public Vec3 TerWep1Pos = new Vec3(-2, 0, 1);
+        public Vec3 TerWep2Pos = new Vec3(2, 0, 1);
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["WPN_CAP"]["mount_MAX"].Value = 1;
             table.ship["WPN_CAP"]["total_ALLOWED"].Value = 0;

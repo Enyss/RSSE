@@ -34,6 +34,6 @@
             </TreeView>
         </DockPanel>
         <local:MeshView DataContext="{Binding ElementName=MeshSelector, Path=SelectedItem}"/>
-        <local:OGLSceneView Scene="{Binding Path=Scene}"/>
+        <local:OGLSceneView Scene="{Binding Path=Scene}" Width ="800" Height="600" Margin="5,0,0,0" VerticalAlignment="Center"/>
     </DockPanel>
 </UserControl>

@@ -12,6 +12,6 @@ namespace RSSE
         public abstract SubsystemTypeEnum SystemType { get; }
         public abstract string SystemGroup { get; }
 
-        public abstract void AddToTable(ShipTable table);
+        public abstract void AddToTable(ShipHullTable table);
     }
 }

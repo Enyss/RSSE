@@ -10,7 +10,7 @@ using System.ComponentModel;
 
 namespace RSSE
 { 
-    public class Ship
+    public class ShipHull
     {
         public string name;
         public string uiName;
@@ -25,7 +25,7 @@ namespace RSSE
         public double pwrRequired;
         public double sysInitTime;
         public double pwrStart;
-        public Vector3 basicDimensions;
+        public Vec3 basicDimensions;
         public double hull_REFLECTIVITY;
         public double volumeInterior;
         public double surfaceAreaExterior;
@@ -33,7 +33,7 @@ namespace RSSE
 
         // Stuff 
         public bool interiorAvailable;
-        public Vector3 playerSTART;
+        public Vec3 playerSTART;
         public Color emergencylight;
         public bool asCockpit;
         public bool landingSkids;
@@ -48,14 +48,14 @@ namespace RSSE
         public MeshCollection interiorMeshes;
         public MeshCollection exteriorMeshes;
 
-        public Ship()
+        public ShipHull()
         {
             subsystemsManager = new SubsystemsManager();
             interiorMeshes = new MeshCollection();
             exteriorMeshes = new MeshCollection();
         }
 
-        public Ship(ShipTable table)
+        public ShipHull(ShipHullTable table)
         {
             // General
             GetFromTable(table);
@@ -93,9 +93,9 @@ namespace RSSE
             subsystemsManager = new SubsystemsManager(subsystemList);
         }
 
-        public ShipTable ToShipTable()
+        public ShipHullTable ToShipTable()
         {
-            ShipTable table = new ShipTable(name);
+            ShipHullTable table = new ShipHullTable(name);
             
             table.shipInterior = interiorMeshes.ToTable();
             table.shipExterior = exteriorMeshes.ToTable();
@@ -112,7 +112,7 @@ namespace RSSE
         }
 
 
-        public void GetFromTable(ShipTable table)
+        public void GetFromTable(ShipHullTable table)
         {
             name = table.ship["Name"].Value;
             uiName = table.ship["UIName"].Value;
@@ -127,7 +127,7 @@ namespace RSSE
             pwrRequired = table.ship["PWRrequired"].Value;
             sysInitTime = table.ship["SYSinitTIME"].Value;
             pwrStart = table.ship["PWRstart"].Value;
-            basicDimensions = new Vector3(table.ship["BasicDimensions"]["l"].Value,
+            basicDimensions = new Vec3(table.ship["BasicDimensions"]["l"].Value,
                                            table.ship["BasicDimensions"]["h"].Value,
                                            table.ship["BasicDimensions"]["w"].Value);
             hull_REFLECTIVITY = table.ship["hull_REFLECTIVITY"].Value;
@@ -135,7 +135,7 @@ namespace RSSE
             surfaceAreaExterior = table.ship["SURFACEAREAexterior"].Value;
             cabinInsPercentage = table.ship["CabinINSpercentage"].Value;
             interiorAvailable = table.ship["InteriorAvailable"].Value > 0.5;
-            playerSTART = new Vector3(table.ship["playerSTART"]);
+            playerSTART = new Vec3(table.ship["playerSTART"]);
 
             emergencylight = new Color(table.ship["color_EMERlight"]);
             asCockpit = table.ship["AsCockpit"].Value > 0.5;
@@ -147,7 +147,7 @@ namespace RSSE
             pilot_INSTRUMENTS = table.ship["pilot_INSTRUMENTS"].Value;
         }
 
-        public void AddToTable(ShipTable table)
+        public void AddToTable(ShipHullTable table)
         {
             table.ship["Name"].Value          = name;
             table.ship["UIName"].Value        = uiName;

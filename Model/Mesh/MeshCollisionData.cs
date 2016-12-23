@@ -21,7 +21,7 @@ namespace RSSE
         public bool useCollision;
         public MeshCollisionShapeEnum collisionShape;
         public bool collAutogen;
-        public Vector3 collShapeSize;
+        public Vec3 collShapeSize;
         public int collisionObjectTotal;
         public double mass;
         public double friction;
@@ -29,7 +29,7 @@ namespace RSSE
 
         public MeshCollisionData()
         {
-            collShapeSize = new Vector3();
+            collShapeSize = new Vec3();
         }
         public MeshCollisionData(Table table)
         {
@@ -38,14 +38,14 @@ namespace RSSE
             {
                 collisionShape = shape[table["CollisionShape"].IntValue % 100];
                 collAutogen = table["CollisionShape"].IntValue >= 100;
-                collShapeSize = new Vector3(table["CollShapeSize"]);
+                collShapeSize = new Vec3(table["CollShapeSize"]);
                 collisionObjectTotal = table["CollisionObjectTotal"].IntValue;
                 mass = table["Mass"].DoubleValue;
                 friction = table["Friction"].DoubleValue;
             }
             else
             {
-                collShapeSize = new Vector3();
+                collShapeSize = new Vec3();
             }
         }
 

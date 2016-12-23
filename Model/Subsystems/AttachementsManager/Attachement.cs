@@ -10,8 +10,8 @@ namespace RSSE
     public class Attachement
     {
         public string name;
-        public Vector3 position;
-        public Vector3 rotation;
+        public Vec3 position;
+        public Vec3 rotation;
         public int size;
         public bool isTowing;
         public bool invertX;
@@ -19,15 +19,15 @@ namespace RSSE
 
         public Attachement()
         {
-            position = new Vector3();
-            rotation = new Vector3();
+            position = new Vec3();
+            rotation = new Vec3();
         }
 
         public Attachement(Table table)
         {
             name = table["Name"].Value;
-            position = new Vector3(table["Position"]);
-            rotation = new Vector3(table["Rotation"]);
+            position = new Vec3(table["Position"]);
+            rotation = new Vec3(table["Rotation"]);
             size = table["Size"].IntValue;
             isTowing = table["IsTowing"].Value > 0;
             invertX = table["InvertX"].Value > 0;

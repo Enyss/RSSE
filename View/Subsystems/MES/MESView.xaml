@@ -10,7 +10,7 @@
              d:DataContext="{d:DesignInstance Type=mv:MESViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="1000" d:DesignWidth="300">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">MES</Label>
             <Label HorizontalAlignment="Center" FontWeight="Bold">Maintenance</Label>
             <Grid>

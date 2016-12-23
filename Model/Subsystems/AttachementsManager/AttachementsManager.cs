@@ -20,7 +20,7 @@ namespace RSSE
             attachements = new List<Attachement>();
         }
 
-        public AttachementsManager(ShipTable table)
+        public AttachementsManager(ShipHullTable table)
         {
 
              attachements = new List<Attachement>();
@@ -28,8 +28,8 @@ namespace RSSE
              while (table.shipCoords["AttachPoint" + i + "Name"].Value != null )
              {
                 Attachement attach = new Attachement();
-                attach.position = new Vector3(table.shipCoords["AttachPoint" + i + "ObjPos"]);
-                attach.rotation = new Vector3(table.shipCoords["AttachPoint" + i + "ObjRot"]);
+                attach.position = new Vec3(table.shipCoords["AttachPoint" + i + "ObjPos"]);
+                attach.rotation = new Vec3(table.shipCoords["AttachPoint" + i + "ObjRot"]);
                 attach.size = table.shipCoords["AttachPoint" + i + "Size"].IntValue;
 	            attach.name = table.shipCoords["AttachPoint" + i + "Name"].Value;
                 attach.isTowing = table.shipCoords["AttachPoint" + i + "isTOWING"].Value > 0.5;
@@ -40,7 +40,7 @@ namespace RSSE
              }
         }
 
-        public override void AddToTable(ShipTable table)
+        public override void AddToTable(ShipHullTable table)
         {
             table.ship["totalATTACHMENTS"].Value = attachements.Count;
             int i = 1;

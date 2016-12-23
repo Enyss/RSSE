@@ -99,16 +99,28 @@ namespace RSSE
         }
 
         // Position
-        public Vector3 Position
+        private Vec3 oldPosition;
+        public Vec3 OldPosition
+        {
+            get
+            {
+                if (oldPosition == null)
+                    oldPosition = new Vec3(Position.x, Position.y, Position.z);
+                return oldPosition;
+            }
+            set { oldPosition = value; }
+        }
+        public Vec3 Position
         {
             get { return _mesh.position; }
             set
             {
+                OldPosition = _mesh.position;
                 _mesh.position = value;
                 OnPropertyChanged();
             }
         }
-        public Vector3 Rotation
+        public Vec3 Rotation
         {
             get { return _mesh.rotation; }
             set
@@ -156,6 +168,7 @@ namespace RSSE
             States = new MeshStateDataViewModel(mesh.states);
             Surfaces = new MeshSurfacesDataViewModel(mesh.surfaces);
         }
+        
 
         #endregion //Constructors
 
@@ -171,11 +184,32 @@ namespace RSSE
             //set parent
             _parent = parent;
             _mesh.parent = (parent == null)? null : parent.Model;
+
+
+            // add this mesh to parent's children & subscribe to parent's properties
             if (parent != null)
             {
-                // add this mesh to parent's children
+                _parent.PropertyChanged += _parent_PropertyChanged;
                 parent.Children.Add(this);
                 parent.Model.children.Add(_mesh);
+            }
+        }
+
+        private void _parent_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            MeshViewModel parent = (MeshViewModel)sender;
+            if (e.PropertyName == "Position")
+            {
+                Position = Position + parent.Position - parent.OldPosition;
+            }
+        }
+
+        public void OnPositionChanged(object sender, RoutedEventArgs e)
+        {
+            if ( !OldPosition.Equals(Position) )
+            {
+                OnPropertyChanged("Position");
+                OldPosition.Set(Position);
             }
         }
 

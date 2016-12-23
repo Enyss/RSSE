@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1200">
     <DockPanel>
-        <TextBlock Text="{Binding Path=Title}" DockPanel.Dock="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20"/>
         <TabControl DockPanel.Dock="Top">
             <TabItem Header="General">
                 <local:GeneralShipView DataContext="{Binding}"/>

@@ -89,6 +89,30 @@
       <HintPath>packages\WPFFolderBrowser.1.0.2\lib\WPFFolderBrowser.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -108,11 +132,19 @@
     <Compile Include="Behaviors\DragAndDropLibrary\IDropTarget.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Utils\PersistableObject.cs" />
+    <Compile Include="ViewModel\IMainViewModel.cs" />
+    <Compile Include="ViewModel\IViewModel.cs" />
+    <Compile Include="ViewModel\MenuViewModel.cs" />
+    <Compile Include="Model\ShipHullManager.cs" />
+    <Compile Include="ViewModel\ShipHullManagerViewModel.cs" />
     <Compile Include="View\GeneralShipView.xaml.cs">
       <DependentUpon>GeneralShipView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\HullEditView.xaml.cs">
       <DependentUpon>HullEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuView.xaml.cs">
+      <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Meshs\MeshSurfacesDataView.xaml.cs">
       <DependentUpon>MeshSurfacesDataView.xaml</DependentUpon>
@@ -173,13 +205,12 @@
     <Compile Include="ViewModel\Mesh\MeshTreeViewModel.cs" />
     <Compile Include="ViewModel\Mesh\StateViewModel.cs" />
     <Compile Include="ViewModel\Mesh\TextureViewModel.cs" />
-    <Compile Include="ViewModel\ShipViewModel.cs" />
+    <Compile Include="ViewModel\ShipHullViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\AccessoriesManagerViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\IAccessoiresManagerViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\ISeatViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\Interface\ISpeakerViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\SeatViewModel.cs" />
-    <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\AccessoriesManager\SpeakerViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\VMS\VMSViewModel.cs" />
     <Compile Include="ViewModel\Subsystems\TMS\TMSViewModel.cs" />
@@ -238,8 +269,8 @@
     <Compile Include="View\Subsystems\VMS\VMSView.xaml.cs">
       <DependentUpon>VMSView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Subsystems\TMS\RMSView.xaml.cs">
-      <DependentUpon>RMSView.xaml</DependentUpon>
+    <Compile Include="View\Subsystems\TMS\TMSView.xaml.cs">
+      <DependentUpon>TMSView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Subsystems\RMS\RMSView.xaml.cs">
       <DependentUpon>RMSView.xaml</DependentUpon>
@@ -326,8 +357,8 @@
     <Compile Include="View\Utils\ColorView.xaml.cs">
       <DependentUpon>ColorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Utils\Vector3View.xaml.cs">
-      <DependentUpon>Vector3View.xaml</DependentUpon>
+    <Compile Include="View\Utils\Vec3View.xaml.cs">
+      <DependentUpon>Vec3View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Mesh\Mesh.cs" />
     <Compile Include="Model\Mesh\MeshLightData.cs" />
@@ -345,8 +376,8 @@
     </Compile>
     <Compile Include="Utils\DelegateCommand.cs" />
     <Compile Include="Utils\Table.cs" />
-    <Compile Include="Utils\Vector2.cs" />
-    <Compile Include="Utils\Vector3.cs" />
+    <Compile Include="Utils\Vec2.cs" />
+    <Compile Include="Utils\Vec3.cs" />
     <Page Include="Application\StartupSettingsWindows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -356,6 +387,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HullEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MenuView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -407,7 +442,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Subsystems\TMS\RMSView.xaml">
+    <Page Include="View\Subsystems\TMS\TMSView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -523,7 +558,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Utils\Vector3View.xaml">
+    <Page Include="View\Utils\Vec3View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

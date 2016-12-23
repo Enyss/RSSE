@@ -18,14 +18,14 @@ namespace RSSE
 
         public NAS() { }
 
-        public NAS(ShipTable table)
+        public NAS(ShipHullTable table)
         {
             mount_MAX   = table.ship["NAS"]["mount_MAX"].IntValue;
             sys_EB      = table.ship["NAS"]["sys_EB"].IntValue;
             sys_quad    = table.ship["NAS"]["sys_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["NAS"]["mount_MAX"].IntValue = mount_MAX;
             table.ship["NAS"]["sys_EB"].IntValue = sys_EB;

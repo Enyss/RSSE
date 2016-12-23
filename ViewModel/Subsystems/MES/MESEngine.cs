@@ -31,7 +31,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _engine.position; }
             set
@@ -40,7 +40,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Rotation
+        public Vec3 Rotation
         {
             get { return _engine.rotation; }
             set

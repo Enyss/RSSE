@@ -25,7 +25,7 @@ namespace RSSE
 
         #region Properties
 
-        public Vector2 Dimensions
+        public Vec2 Dimensions
         {
             get { return _vms.dimensions; }
             set

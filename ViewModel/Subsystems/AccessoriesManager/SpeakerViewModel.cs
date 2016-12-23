@@ -30,7 +30,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _speaker.Position; }
             set

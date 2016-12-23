@@ -20,14 +20,14 @@
         </Grid>
         <Label HorizontalAlignment="Center">Normal</Label>
         <Grid>
-            <Label>Position :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding Position}"/>
+            <Label>Position</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding Position}"/>
         </Grid>
         <Grid>
-            <Label>Vector :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding Vector}"/>
+            <Label>Vector</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding Vector}"/>
         </Grid>
         <Grid>
             <Label>VFX :</Label>
@@ -36,14 +36,14 @@
         </Grid>
         <Label HorizontalAlignment="Center">Reverse</Label>
         <Grid>
-            <Label>Position :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding Pos_REV}"/>
+            <Label>Position</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding Pos_REV}"/>
         </Grid>
         <Grid>
-            <Label>Vector :</Label>
-            <local:Vector3View HorizontalAlignment="Left" Margin="85,0,0,0" 
-                               DataContext="{Binding Vctr_REV}"/>
+            <Label>Vector</Label>
+            <local:Vec3View HorizontalAlignment="Right"
+                               Vector="{Binding Vctr_REV}"/>
         </Grid>
         <Grid>
             <Label>VFX :</Label>

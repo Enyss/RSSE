@@ -7,7 +7,7 @@ using NLua;
 
 namespace RSSE
 {
-    public class ShipTable
+    public class ShipHullTable
     {
         public string name;
         public Table ship;
@@ -16,7 +16,7 @@ namespace RSSE
         public Table shipCameras;
         public Table shipCoords;
 
-        public ShipTable(string name)
+        public ShipHullTable(string name)
         {
             this.name = name;
             ship = new Table();
@@ -26,7 +26,7 @@ namespace RSSE
             shipCoords = new Table();
         }
 
-        public ShipTable(string name, string content)
+        public ShipHullTable(string name, string content)
         {
             Lua lua = new Lua();
             lua.DoString(content);

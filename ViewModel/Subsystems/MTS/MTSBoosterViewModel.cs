@@ -36,7 +36,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _booster.position; }
             set
@@ -45,7 +45,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Vector
+        public Vec3 Vector
         {
             get { return _booster.vector; }
             set
@@ -54,7 +54,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Pos_REV
+        public Vec3 Pos_REV
         {
             get { return _booster.pos_REV; }
             set
@@ -63,7 +63,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Vctr_REV
+        public Vec3 Vctr_REV
         {
             get { return _booster.vctr_REV; }
             set

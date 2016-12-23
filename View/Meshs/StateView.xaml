@@ -42,15 +42,15 @@
         </StackPanel>
         <Grid>
             <Label>Position</Label>
-            <local:Vector3View DataContext="{Binding Path=Position}"/>
+            <local:Vec3View Vector="{Binding Path=Position}"/>
         </Grid>
         <Grid>
             <Label>Rotation</Label>
-            <local:Vector3View DataContext="{Binding Path=Rotation}"/>
+            <local:Vec3View Vector="{Binding Path=Rotation}" Increment="0.5"/>
         </Grid>
         <Grid>
             <Label>Scale</Label>
-            <local:Vector3View DataContext="{Binding Path=Scale}"/>
+            <local:Vec3View Vector="{Binding Path=Scale}"/>
         </Grid>
         <Grid>
             <Label>Start pause</Label>

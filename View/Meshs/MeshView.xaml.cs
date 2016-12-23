@@ -24,5 +24,11 @@ namespace RSSE
         {
             InitializeComponent();
         }
+
+        private void Position_ValueChanged(object sender, RoutedEventArgs e)
+        {
+            ((MeshViewModel)DataContext).OnPositionChanged(sender,e);
+        }
+        
     }
 }

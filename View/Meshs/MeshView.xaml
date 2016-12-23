@@ -62,22 +62,16 @@
                 <Label HorizontalAlignment="Center" FontWeight="Bold">Location</Label>
             </Expander.Header>
             <StackPanel>
-                <Grid>
-                    <Label>Parent</Label>
-                    <TextBlock Margin="120,0,0,0" VerticalAlignment="Center"
+                    <Grid>
+                        <Label>Parent</Label>
+                        <TextBlock Margin="120,0,0,0" VerticalAlignment="Center"
                      Text="{Binding ParentName}"/>
-                </Grid>
-                <Grid>
-                    <Label>Position</Label>
-                    <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
-                     DataContext="{Binding Position}"/>
-                </Grid>
-                <Grid>
-                    <Label>Rotation</Label>
-                    <local:Vector3View Margin="120,0,0,0" VerticalAlignment="Center"
-                     DataContext="{Binding Rotation}"/>
-                </Grid>
-            </StackPanel>
+                    </Grid>
+                    <Label>Position :</Label>
+                    <local:Vec3View Vector="{Binding Path=Position}" Increment="0.01" ValueChanged="Position_ValueChanged"/>
+                    <Label>Rotation :</Label>
+                    <local:Vec3View Vector="{Binding Path=Rotation}" Increment="0.5"/>
+                </StackPanel>
             
         </Expander>
         <Expander IsExpanded="False">

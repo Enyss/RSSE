@@ -32,7 +32,7 @@ namespace RSSE
 
         }
 
-        public ECS(ShipTable table)
+        public ECS(ShipHullTable table)
         {
             ecs_PWRpercent = table.ship["ECS_PWRpercent"].Value;
             ecs_MASSpercent = table.ship["ECS_MASSpercent"].Value;
@@ -50,7 +50,7 @@ namespace RSSE
             sys_quad = table.ship["ECS"]["sys_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["ECS_PWRpercent"].Value = ecs_PWRpercent;
             table.ship["ECS_MASSpercent"].Value = ecs_MASSpercent;

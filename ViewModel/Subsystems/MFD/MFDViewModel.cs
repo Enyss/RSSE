@@ -25,7 +25,7 @@ namespace RSSE
 
         #region Properties
 
-        public Vector3 UpperLeft
+        public Vec3 UpperLeft
         {
             get { return _mfd.upperLeft; }
             set
@@ -34,7 +34,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Dimensions
+        public Vec3 Dimensions
         {
             get { return _mfd.dimensions; }
             set

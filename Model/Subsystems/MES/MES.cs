@@ -23,7 +23,7 @@ namespace RSSE
             engines = new List<MESEngine>();
         }
 
-        public MES(ShipTable ship)
+        public MES(ShipHullTable ship)
         {
             engines = new List<MESEngine>();
             mount_MAX = ship.ship["MES"]["mount_MAX"].IntValue;
@@ -39,7 +39,7 @@ namespace RSSE
             }
         }
 
-        override public void AddToTable(ShipTable ship)
+        override public void AddToTable(ShipHullTable ship)
         {
             ship.ship["MES"]["mount_MAX"].IntValue = mount_MAX;
             ship.ship["MES"]["total_ALLOWED"].IntValue = total_ALLOWED;

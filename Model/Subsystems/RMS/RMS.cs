@@ -19,7 +19,7 @@ namespace RSSE
 
         public RMS() { }
 
-        public RMS(ShipTable table)
+        public RMS(ShipHullTable table)
         {
             hardmounted_TOTAL = table.ship["RMS"]["hardmounted_TOTAL"].IntValue;
             sys1_JOINTtotal = table.ship["RMS"]["sys1_JOINTtotal"].IntValue;
@@ -27,7 +27,7 @@ namespace RSSE
             sys1_quad = table.ship["RMS"]["sys1_quad"].IntValue;
         }
 
-        override public void AddToTable(ShipTable table)
+        override public void AddToTable(ShipHullTable table)
         {
             table.ship["RMS"]["hardmounted_TOTAL"].IntValue = hardmounted_TOTAL;
             table.ship["RMS"]["sys1_JOINTtotal"].IntValue = sys1_JOINTtotal;

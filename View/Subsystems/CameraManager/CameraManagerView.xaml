@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel Margin="1,5">
-        <StackPanel Width="275" HorizontalAlignment="Left">
+        <StackPanel Width="300" HorizontalAlignment="Left">
             <Label HorizontalAlignment="Center" FontSize="16" FontWeight="Bold">Cameras</Label>
             <local:SelectBoxControl x:Name="CameraSelector" Height="200"
                 Label=""

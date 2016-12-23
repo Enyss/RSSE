@@ -8,15 +8,15 @@ namespace RSSE
 {
     public class Area3D
     {
-        public Vector3 PointA { get; set; }
-        public Vector3 PointB { get; set; }
+        public Vec3 PointA { get; set; }
+        public Vec3 PointB { get; set; }
 
         public Area3D()
         {
-            PointA = new Vector3();
-            PointB = new Vector3();
+            PointA = new Vec3();
+            PointB = new Vec3();
         }
-        public Area3D( Vector3 pointA, Vector3 pointB )
+        public Area3D( Vec3 pointA, Vec3 pointB )
         {
             PointA = pointA;
             PointB = pointB;
@@ -25,8 +25,8 @@ namespace RSSE
         // Temporary?
         public Area3D(Table table)
         {
-            PointA = new Vector3(table["x1"].Value, table["y1"].Value, table["z1"].Value);
-            PointB = new Vector3(table["x2"].Value, table["y2"].Value, table["z2"].Value);
+            PointA = new Vec3(table["x1"].Value, table["y1"].Value, table["z1"].Value);
+            PointB = new Vec3(table["x2"].Value, table["y2"].Value, table["z2"].Value);
         }
 
         public Table ToTable()

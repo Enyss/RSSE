@@ -41,7 +41,7 @@ namespace RSSE
         }
         public bool IsTriggered  { get { return MotionType == StateMotionTypeEnum.EVENTDRIVEN; } }
 
-        public Vector3 Position
+        public Vec3 Position
         {
             get { return _state.position; }
             set
@@ -50,7 +50,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Rotation
+        public Vec3 Rotation
         {
             get { return _state.rotation; }
             set
@@ -59,7 +59,7 @@ namespace RSSE
                 OnPropertyChanged();
             }
         }
-        public Vector3 Scale
+        public Vec3 Scale
         {
             get { return _state.scale; }
             set
